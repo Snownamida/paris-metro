@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>巴黎里昂站结构 · 巴黎轨道交通手册</title>
-  <link rel="stylesheet" href="../assets/css/main.css?v=2" />
+  <link rel="stylesheet" href="../assets/css/main.css?v=3" />
   <script src="../assets/js/site.js?v=2" data-root="../"></script>
+  <script src="../assets/js/iso.js?v=1"></script>
 </head>
 <body>
   <main>
@@ -177,51 +178,16 @@
       </section>
     </div>
 
-    <h2>竖向层级</h2>
-    <section class="panel levels">
-      <div class="level-row">
-        <div class="level-tag">0</div>
-        <div class="level-body">
-          <span class="level-name">Hall 1（voies A–N）、Hall 2（voies 5–23）、站前广场 place Louis-Armand</span>
-          <div class="level-desc">发车站台一般提前约 20 分钟公布（蓝底出发 / 绿底到达）；钟楼 Tour de l'Horloge（67 m）矗立于广场一角</div>
-        </div>
-      </div>
-      <div class="level-row">
-        <div class="level-tag">-1</div>
-        <div class="level-body">
-          <span class="level-name">Hall 3、Galerie Diderot、地铁 1 号线站台
-            <span class="line-wrap"><span data-line="1"></span></span>
-          </span>
-          <div class="level-desc">Hall 3 贯通 rue de Bercy ↔ place Henri-Frenay；Galerie Diderot 连接 Hall 1 与 1 号线</div>
-        </div>
-      </div>
-      <div class="level-row">
-        <div class="level-tag">-2</div>
-        <div class="level-body">
-          <span class="level-name">salle d'échanges 换乘大厅</span>
-          <div class="level-desc">连接 Hall 3、地铁 1 / 14 号线与 RER A / D 的枢纽层</div>
-        </div>
-      </div>
-      <div class="level-row">
-        <div class="level-tag">-3</div>
-        <div class="level-body">
-          <span class="level-name">RER D 站台
-            <span class="line-wrap"><span data-line="D"></span></span>
-          </span>
-          <div class="level-desc">4 轨 2 座岛式站台；仅这 4 条轨道接入通往 Châtelet–Les Halles 的隧道</div>
-        </div>
-      </div>
-      <div class="level-row">
-        <div class="level-tag">-4</div>
-        <div class="level-body">
-          <span class="level-name">RER A 站台
-            <span class="line-wrap"><span data-line="A"></span></span>
-            与 14 号线站台（深层）
-            <span class="line-wrap"><span data-line="14"></span></span>
-          </span>
-          <div class="level-desc">RER A 位于 RER D 正下方；14 号线深埋于 rue de Bercy 之下（层级编号为惯用口径，非精确标高）</div>
-        </div>
-      </div>
+    <h2>立体剖视（楼层示意，非精确标高）</h2>
+    <section class="panel">
+      <div id="iso-gdl"></div>
+      <p class="note" style="margin: 0.8rem 0 0;">
+        虚线为楼扶梯垂直连接，点击上方图例可单独查看某一层。迷路时记住一条：
+        <strong>换乘大厅（-2）是所有地下动线的必经枢纽</strong>——从它出发，上行经
+        Hall 3（-1）可达所有发车站台，下行两层依次是 RER D 与 RER A，
+        向南（rue de Bercy 方向）走到底是 14 号线。RER D 的 4 条轨道是唯一接入
+        Châtelet–Les Halles 隧道的轨道；发车站台一般提前约 20 分钟公布。
+      </p>
     </section>
 
     <h2>典型换乘动线</h2>
@@ -275,5 +241,64 @@
   <footer class="site-footer">
     数据核实于 2026 年 7 月，主要来源：法语维基百科、RATP、Île-de-France Mobilités。
   </footer>
+
+  <script>
+    // 立体剖视数据：x 轴沿站台方向（西→东南），y 轴横向（北 bd Diderot → 南 rue de Bercy）
+    document.addEventListener("DOMContentLoaded", function () {
+      renderIso(document.getElementById("iso-gdl"), {
+        footprint: { w: 400, d: 260 },
+        levels: [
+          {
+            id: "0", z: 0, tag: "0", label: "地面大厅",
+            items: [
+              { x: 10, y: 30, w: 110, d: 90, h: 30, color: "--accent", topLabel: "Hall 1 · A–N", topLabelSize: 11.5 },
+              { x: 55, y: 150, w: 110, d: 85, h: 24, color: "--accent", topLabel: "Hall 2 · 5–23", topLabelSize: 11.5 },
+              { x: 8, y: 124, w: 20, d: 20, h: 55, color: "--m10", label: "Tour de l'Horloge", labelSide: "left", labelDy: -14 },
+              { x: 120, y: 35, w: 270, d: 80, h: 3, color: "--border", label: "字母站台（往东南）→", labelDy: -8 },
+              { x: 165, y: 150, w: 225, d: 85, h: 3, color: "--border", label: "单数站台 →", labelDy: 10 },
+            ],
+          },
+          {
+            id: "-1", z: -120, tag: "-1", label: "Hall 3 · 地铁 1 号线",
+            items: [
+              { x: 120, y: 4, w: 120, d: 24, h: 18, color: "--m1", topLabel: "地铁 1 号线", topLabelSize: 11.5, topLabelColor: "#1c1c1e" },
+              { x: 20, y: 28, w: 100, d: 16, h: 12, color: "--text-dim", label: "Galerie Diderot（通 Hall 1）", labelSide: "left", labelDy: 26 },
+              { x: 250, y: 10, w: 40, d: 240, h: 20, color: "--m12", label: "Hall 3 走廊（贯通站台之下）", labelDy: 14 },
+            ],
+          },
+          {
+            id: "-2", z: -240, tag: "-2", label: "换乘大厅",
+            items: [
+              { x: 150, y: 140, w: 150, d: 95, h: 20, color: "--accent", topLabel: "换乘大厅（枢纽）", label: "salle d'échanges" },
+            ],
+          },
+          {
+            id: "-3", z: -360, tag: "-3", label: "RER D",
+            items: [
+              { x: 60, y: 150, w: 280, d: 25, h: 14, color: "--rer-d", topLabel: "RER D · 4 轨 2 岛台", topLabelSize: 12 },
+              { x: 60, y: 195, w: 280, d: 25, h: 14, color: "--rer-d" },
+            ],
+          },
+          {
+            id: "-4", z: -480, tag: "-4", label: "RER A · 地铁 14 号线",
+            items: [
+              { x: 60, y: 165, w: 280, d: 45, h: 14, color: "--rer-a", topLabel: "RER A · 特宽岛台", topLabelSize: 12 },
+              { x: 200, y: 235, w: 170, d: 23, h: 14, color: "--m14", topLabel: "地铁 14 号线", topLabelSize: 11.5 },
+            ],
+          },
+        ],
+        connectors: [
+          { x: 140, y: 75, from: 0, to: -240, label: "voie K/C 对面扶梯直下", labelDy: -30 },
+          { x: 60, y: 36, from: 0, to: -120 },
+          { x: 270, y: 80, from: 0, to: -120 },
+          { x: 270, y: 200, from: 0, to: -120, label: "各站台 ↕ Hall 3" },
+          { x: 270, y: 200, from: -120, to: -240, label: "Hall 3 ↕ 换乘大厅" },
+          { x: 220, y: 190, from: -240, to: -360 },
+          { x: 220, y: 190, from: -360, to: -480, label: "RER D ↕ RER A" },
+          { x: 290, y: 238, from: -240, to: -480, label: "换乘大厅 ↕ M14", labelDy: 40 },
+        ],
+      });
+    });
+  </script>
 </body>
 </html>
