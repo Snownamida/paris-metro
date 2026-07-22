@@ -36,27 +36,20 @@
     return p;
   }
 
-  // 画一个长方体：顶面 + 四个侧面（按远近排序，被遮挡的自然画在下面），
-  // 侧面按朝向叠加黑色做明暗。支持 opts.angle：矩形绕自身中心在平面内旋转（度，
-  // 世界坐标系内顺时针为正，用于斜向的走廊/站台）。
-  // opts.opacity < 1 时（楼板）呈半透明，让下层内容透出；opts.outline 给顶面描边。
-  function prism(g, x, y, w, d, z, h, color, opts) {
+  // 以任意平面多边形为底、向上拉伸 h 的棱柱：顶面 + 各侧面
+  // （侧面按远近排序，被遮挡的自然画在下面），侧面按朝向叠加黑色做明暗。
+  // 顶点请按顺时针（y 向下的世界坐标系）给出，保证明暗方向一致。
+  // opts.opacity < 1 时呈半透明，让下层内容透出；opts.outline 给顶面描边。
+  function prismCorners(g, corners, z, h, color, opts) {
     opts = opts || {};
-    const cx = x + w / 2, cy = y + d / 2;
-    const a = (opts.angle || 0) * Math.PI / 180;
-    const ca = Math.cos(a), sa = Math.sin(a);
-    // 顶面四角（世界坐标，绕中心旋转）
-    const corners = [[x, y], [x + w, y], [x + w, y + d], [x, y + d]].map(function (p) {
-      const dx = p[0] - cx, dy = p[1] - cy;
-      return [cx + dx * ca - dy * sa, cy + dx * sa + dy * ca];
-    });
+    const n = corners.length;
     const top = corners.map(function (p) { return px(p[0], p[1], z + h); });
     const bot = corners.map(function (p) { return px(p[0], p[1], z); });
 
     // 侧面：远的先画
     const sides = [];
-    for (let i = 0; i < 4; i++) {
-      const j = (i + 1) % 4;
+    for (let i = 0; i < n; i++) {
+      const j = (i + 1) % n;
       const ex = corners[j][0] - corners[i][0], ey = corners[j][1] - corners[i][1];
       const len = Math.hypot(ex, ey) || 1;
       const nx = ey / len, ny = -ex / len; // 外法线
@@ -85,7 +78,22 @@
       if (opts.opacity != null) p.setAttribute("opacity", opts.opacity);
       g.appendChild(p);
     });
-    return { topCenter: px(cx, cy, z + h), angle: opts.angle || 0 };
+    let cx = 0, cy = 0;
+    corners.forEach(function (p) { cx += p[0]; cy += p[1]; });
+    return { topCenter: px(cx / n, cy / n, z + h), angle: opts.angle || 0 };
+  }
+
+  // 长方体（可绕中心旋转 angle 度），内部转为多边形棱柱
+  function prism(g, x, y, w, d, z, h, color, opts) {
+    opts = opts || {};
+    const cx = x + w / 2, cy = y + d / 2;
+    const a = (opts.angle || 0) * Math.PI / 180;
+    const ca = Math.cos(a), sa = Math.sin(a);
+    const corners = [[x, y], [x + w, y], [x + w, y + d], [x, y + d]].map(function (p) {
+      const dx = p[0] - cx, dy = p[1] - cy;
+      return [cx + dx * ca - dy * sa, cy + dx * sa + dy * ca];
+    });
+    return prismCorners(g, corners, z, h, color, opts);
   }
 
   window.renderIso = function (container, model) {
@@ -116,7 +124,9 @@
       // 楼层内容
       (lv.items || []).forEach(function (it) {
         const color = cssColor(it.color || "--text-dim");
-        const info = prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color, { angle: it.angle, opacity: it.opacity });
+        const info = it.poly
+          ? prismCorners(g, it.poly, lv.z, it.h, color, { angle: it.angle, opacity: it.opacity })
+          : prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color, { angle: it.angle, opacity: it.opacity });
         track(info.topCenter);
         // 直接印在顶面上的文字（沿方块长轴铺在面内，跟随旋转角）
         if (it.topLabel) {
