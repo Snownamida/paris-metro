@@ -17,8 +17,8 @@
   --rer-a: #eb2132; --rer-b: #5091cb; --rer-c: #ffcc30;
   --rer-d: #008b5b; --rer-e: #b94e9a;
 
-  /* Châtelet–Les Halles 三扇区官方导向色（doré / bronze / bleu azur） */
-  --sect-forum: #c9a227; --sect-rivoli: #9c7a4b; --sect-seine: #4aa8d8;
+  /* Châtelet–Les Halles 三扇区官方导向色（取自站内导向牌照片：橄榄金 / 灰褐 / 蓝灰） */
+  --sect-forum: #a2993f; --sect-rivoli: #8a7969; --sect-seine: #7ea9be;
 }
 
 @media (prefers-color-scheme: dark) {
