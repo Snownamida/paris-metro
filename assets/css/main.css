@@ -1,0 +1,299 @@
+/* ===== 设计变量 ===== */
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --text: #1c1c1e;
+  --text-dim: #6b6b70;
+  --border: #e2e0da;
+  --accent: #0064b0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.07), 0 4px 16px rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+
+  /* IDFM 线路色（2019 版官方色板） */
+  --m1: #ffce00; --m2: #0064b0; --m3: #9f9825; --m3bis: #98d4e2;
+  --m4: #c04191; --m5: #f28e42; --m6: #83c491; --m7: #f3a4ba;
+  --m7bis: #83c491; --m8: #ceadd2; --m9: #d5c900; --m10: #e3b32a;
+  --m11: #8d5e2a; --m12: #00814f; --m13: #98d4e2; --m14: #662483;
+  --rer-a: #e2231a; --rer-b: #7ba3dc; --rer-c: #f99d1d;
+  --rer-d: #00814f; --rer-e: #b94e9a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17171a;
+    --surface: #232327;
+    --text: #ececee;
+    --text-dim: #9a9aa1;
+    --border: #37373d;
+    --accent: #6ab2e8;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+}
+
+h1 { font-size: 1.7rem; margin: 1rem 0 0.3rem; }
+h2 { font-size: 1.25rem; margin-top: 2.2rem; }
+h3 { font-size: 1.05rem; }
+a { color: var(--accent); }
+p.lead { color: var(--text-dim); margin-top: 0; }
+
+/* ===== 顶部导航（由 site.js 注入） ===== */
+.site-nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.site-nav .inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  overflow-x: auto;
+}
+.site-nav .brand {
+  font-weight: 700;
+  padding: 0.7rem 0;
+  white-space: nowrap;
+  color: var(--text);
+  text-decoration: none;
+}
+.site-nav a.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 0.7rem 0;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a.nav-link:hover { color: var(--text); }
+.site-nav a.nav-link.active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* ===== 线路标志 ===== */
+.line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.92em;
+  color: #fff;
+  flex: none;
+  font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+}
+.line.dark-text { color: #1c1c1e; }
+.line.rer { border-radius: 0.28em; }
+
+/* 未来才会使用该车型的线路：虚线圈 */
+.line.future-line {
+  opacity: 0.88;
+  outline: 2px dashed var(--text-dim);
+  outline-offset: 2px;
+}
+
+/* ===== 卡片（首页导航等） ===== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.12s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card h3 { margin: 0 0 0.35rem; }
+.card p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+.card .card-lines { margin-top: 0.7rem; display: flex; gap: 0.35rem; flex-wrap: wrap; }
+
+/* ===== 通用面板 ===== */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.25rem;
+}
+
+.note {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  border-left: 3px solid var(--border);
+  padding-left: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+footer.site-footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+/* 横向可滚动容器：宽内容不得撑破页面 */
+.scroll-x { overflow-x: auto; }
+
+/* ===== 车型页 ===== */
+.stock-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 900px) {
+  .stock-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+.stock-panel { padding-bottom: 1.4rem; }
+.stock-title { margin: 0.2rem 0 0.2rem; }
+.stock-subtitle { margin: 0 0 1rem; color: var(--text-dim); font-size: 0.9rem; }
+
+.stock-table-wrap {
+  position: relative;
+  /* 右侧留出箭头走线槽 */
+  padding-right: 64px;
+  overflow-x: auto;
+}
+.stock-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.stock-table th {
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 2px solid var(--border);
+}
+.stock-table td {
+  padding: 0.65rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.stock-table tbody tr:last-child td { border-bottom: none; }
+
+.cell-model { min-width: 10.5em; }
+.model-name-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.model-name { font-weight: 700; font-size: 1.02rem; white-space: nowrap; }
+.model-year { color: var(--text-dim); font-size: 0.8rem; }
+.model-note { color: var(--text-dim); font-size: 0.8rem; margin-top: 0.15rem; }
+
+.status {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.1em 0.55em;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.st-active { background: rgba(0, 129, 79, 0.15); color: #00814f; }
+.st-out { background: rgba(200, 70, 40, 0.15); color: #c84628; }
+.st-new { background: rgba(0, 100, 176, 0.15); color: var(--accent); }
+.st-future { background: rgba(102, 36, 131, 0.14); color: #9457b8; }
+@media (prefers-color-scheme: dark) {
+  .st-active { color: #6fcfa5; }
+  .st-out { color: #f0906f; }
+  .st-future { color: #c39ad9; }
+}
+
+.line-wrap { display: flex; gap: 0.45rem; flex-wrap: wrap; align-items: center; }
+.line-item { display: inline-flex; }
+
+.arrow-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.arrow-path {
+  fill: none;
+  stroke-width: 2.2;
+  opacity: 0.85;
+}
+.arrow-label {
+  font-size: 10px;
+  fill: var(--text-dim);
+  writing-mode: vertical-rl;
+}
+
+/* ===== 车站结构页 ===== */
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.zone {
+  border-top: 4px solid var(--accent);
+}
+.zone h3 { margin: 0.2rem 0 0.2rem; }
+.zone .zone-sub { color: var(--text-dim); font-size: 0.85rem; margin: 0 0 0.8rem; }
+.zone ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.zone li { margin: 0.25rem 0; }
+.zone .line-wrap { margin: 0.5rem 0 0.8rem; }
+
+.exit-list { columns: 2; column-gap: 2rem; padding-left: 1.2rem; }
+.exit-list li { break-inside: avoid; margin: 0.25rem 0; font-size: 0.92rem; }
+@media (max-width: 640px) { .exit-list { columns: 1; } }
+
+.connections li { margin: 0.45rem 0; }
+
+/* 楼层剖面示意 */
+.levels { margin-top: 1rem; }
+.level-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.8rem;
+  border-bottom: 1px dashed var(--border);
+  padding: 0.55rem 0;
+}
+.level-row:last-child { border-bottom: none; }
+.level-tag {
+  flex: none;
+  width: 4.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  background: var(--bg);
+  border-radius: 8px;
+}
+.level-body { flex: 1; }
+.level-body .line-wrap { display: inline-flex; margin-left: 0.4rem; vertical-align: middle; }
+.level-name { font-weight: 600; }
+.level-desc { color: var(--text-dim); font-size: 0.88rem; }

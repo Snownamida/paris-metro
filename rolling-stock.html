@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>巴黎地铁车厢型号 · 巴黎轨道交通手册</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <script src="assets/js/site.js" data-root="./"></script>
+  <script src="assets/js/data/rolling-stock.js"></script>
+  <script src="assets/js/rolling-stock.js"></script>
+</head>
+<body>
+  <main>
+    <h1>巴黎地铁车厢型号</h1>
+    <p class="lead">
+      现役与未来车型，按入役年份从旧到新排列。右栏为使用该车型的线路；
+      虚线圈表示该线路未来才会用上此车型。彩色箭头表示换代计划：从旧车型行内的
+      线路标志指向它将换成的车型。
+    </p>
+
+    <div class="stock-grid" id="stock-container"></div>
+
+    <p class="note" id="stock-note"></p>
+  </main>
+
+  <footer class="site-footer">
+    数据核实于 2026 年 7 月，主要来源：法语维基百科、RATP、Île-de-France Mobilités。
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.ROLLING_STOCK && window.ROLLING_STOCK.note) {
+        document.getElementById("stock-note").textContent = window.ROLLING_STOCK.note;
+      }
+    });
+  </script>
+</body>
+</html>
