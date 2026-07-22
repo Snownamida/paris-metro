@@ -260,13 +260,13 @@
               { x: 305, y: 96, w: 335, d: 86, h: 3, color: "--border", opacity: 0.45, topLabel: "voies A–N →", topLabelSize: 12.5, topLabelColor: "var(--text-dim)", label: "字母站台（无 B、F）· rue de Bercy 一侧", labelDy: 20 },
               { x: 485, y: 35, w: 155, d: 61, h: 3, color: "--border", opacity: 0.45, topLabel: "voies 5–23 →", topLabelSize: 12, topLabelColor: "var(--text-dim)", label: "单数站台 · bd Diderot 一侧，头端东移约 200 m", labelDy: -36 },
               { x: 205, y: 245, w: 20, d: 20, h: 55, color: "--m10", label: "Tour de l'Horloge", labelSide: "left", labelDy: -16 },
-              { x: 260, y: 79, w: 193, d: 16, h: 4, color: "--border", angle: -23, opacity: 0.85, label: "Galerie des Fresques（连接两厅）", labelDy: -56 },
+              { poly: [[250,66],[445,66],[445,88],[272,88],[272,130],[250,130]], h: 4, color: "--text-dim", opacity: 0.55, label: "Galerie des Fresques（L 形连接两厅）", labelDy: -56 },
             ],
           },
           {
             id: "-1", z: -120, tag: "-1", label: "街面标高：Hall 3 · 地铁 1 号线",
             items: [
-              { x: 307, y: 127, w: 185, d: 26, h: 16, color: "--m12", angle: -90, topLabel: "Hall 3（与街面平层）", topLabelSize: 12 },
+              { poly: [[441,10],[387,73],[387,232],[412,232],[412,88],[462,26]], h: 16, color: "--m12", angle: -90, topLabel: "Hall 3（与街面平层）", topLabelSize: 12 },
               { x: 110, y: 28, w: 110, d: 20, h: 14, color: "--m1", angle: -49, topLabel: "地铁 1 号线", topLabelSize: 11, topLabelColor: "#1c1c1e" },
               { x: 125, y: 100, w: 150, d: 18, h: 12, color: "--text-dim", angle: 67, label: "Galerie Diderot（Hall 1 ↔ M1 / RER）", labelSide: "left", labelDy: 6 },
             ],
@@ -295,7 +295,7 @@
         connectors: [
           { x: 215, y: 200, from: 0, to: -240, label: "voie K/C 对面扶梯直下", labelDy: -36 },
           { x: 398, y: 120, from: 0, to: -120, label: "字母站台 ↕ Hall 3" },
-          { x: 400, y: 58, from: 0, to: -120, label: "Hall 2 / 单数站台 ↕ Hall 3", labelDy: -34 },
+          { x: 405, y: 64, from: 0, to: -120, label: "Hall 2 / 单数站台 ↕ Hall 3", labelDy: -34 },
           { x: 227, y: 182, from: -120, to: -240, label: "Galerie ↕ 换乘大厅", labelDy: -20 },
           { x: 400, y: 226, from: -120, to: -240, label: "Hall 3 ↕ 换乘大厅", labelDy: 12 },
           { x: 293, y: 207, from: -240, to: -360, label: "换乘大厅 ↕ RER D" },
