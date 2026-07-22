@@ -199,22 +199,59 @@
 
     <h2>换乘大厅（-2 层）放大</h2>
     <div class="panel scroll-x">
-      <svg viewBox="0 0 1240 500" style="width: 100%; min-width: 900px; height: auto; font-family: inherit;">
-        <text x="24" y="24" font-size="13" style="fill:var(--text-dim)">按 OSM 实测坐标 1:1 绘制（1 px ≈ 0.31 m）· 图左＝西北 · 图右＝东南 · 上＝东北（主线站台一侧）· 下＝西南（rue de Bercy 一侧）</text>
+      <svg viewBox="0 0 1240 520" style="width: 100%; min-width: 900px; height: auto; font-family: inherit;">
+        <text x="24" y="24" font-size="13" style="fill:var(--text-dim)">按 OSM 实测坐标 1:1 绘制、结构按 SNCF 官方 -2 层图（refs/）· 图左＝西北 · 图右＝东南 · 上＝东北（主线站台侧）· 下＝西南（Bercy 侧）</text>
 
-        <!-- 大厅轮廓（实测 97 点多边形） -->
+        <!-- 大厅轮廓（实测 97 点） -->
         <path d="M 362.5 114.7 L 363.1 115.1 L 364.2 115.4 L 370.7 115.3 L 501.6 117.5 L 503.1 115.8 L 503.8 105.5 L 503.6 101.3 L 503.5 99.2 L 514.3 99.5 L 552.8 100.1 L 560.8 100.0 L 560.8 118.4 L 844.2 122.9 L 844.6 107.2 L 865.2 87.2 L 865.7 54.2 L 923.1 55.2 L 922.3 88.1 L 942.1 108.9 L 941.5 122.7 L 943.5 124.7 L 995.4 125.6 L 1068.1 126.4 L 1068.1 115.5 L 1156.6 104.9 L 1161.0 127.8 L 1202.9 129.1 L 1203.0 145.9 L 1203.1 152.1 L 1204.9 152.2 L 1204.7 164.2 L 1202.8 164.2 L 1202.0 214.4 L 1198.6 214.4 L 1198.5 217.1 L 1203.6 217.1 L 1203.4 229.1 L 1202.6 301.5 L 1114.6 302.2 L 1050.6 302.7 L 1050.3 307.1 L 1027.8 306.8 L 1028.0 314.0 L 1011.6 313.9 L 1011.4 318.9 L 1002.9 318.9 L 990.0 313.1 L 673.9 305.7 L 672.4 318.0 L 661.8 404.8 L 626.7 402.2 L 598.1 400.1 L 613.0 304.8 L 490.2 305.1 L 477.0 304.9 L 453.3 305.0 L 378.4 303.9 L 353.0 299.9 L 336.2 297.3 L 293.4 290.6 L 293.7 283.3 L 295.7 278.9 L 296.0 278.0 L 295.6 277.2 L 294.8 276.5 L 293.6 276.3 L 292.7 276.2 L 292.7 277.3 L 187.2 263.4 L 186.4 273.9 L 174.9 271.6 L 169.9 270.8 L 165.9 269.9 L 110.8 254.6 L 75.7 244.7 L 60.2 240.4 L 21.7 228.6 L 32.6 187.9 L 142.2 199.8 L 166.5 155.7 L 190.1 157.3 L 191.5 112.5 L 262.7 113.6 L 286.6 114.1 L 319.2 114.7 L 320.2 114.4 L 320.8 114.1 L 321.4 113.2 L 321.6 112.6 L 321.8 95.5 L 326.9 95.5 L 357.3 95.9 L 362.2 95.9 L 362.0 113.1 L 362.1 113.8 L 362.5 114.7 Z" fill-opacity="0.35" stroke-width="2.5" style="fill:var(--surface);stroke:var(--accent)" />
 
-        <!-- RER 付费区（闸机线围合的中央区域） -->
-        <path d="M 324.0 120.4 L 496.8 139.6 L 922.4 149.2 L 970.4 162.0 L 996.0 216.4 L 1050.4 286.8 L 848.8 248.4 L 500.0 216.4 L 464.8 216.4 L 407.2 242.0 L 336.8 219.6 L 324.0 149.2 Z" fill-opacity="0.14" stroke-width="0" style="fill:var(--rer-d)" />
-        <text x="644.0" y="187.6" text-anchor="middle" font-weight="700" font-size="14" style="fill:var(--rer-d)">RER 付费区（进・出都要过闸）</text>
+        <!-- RER 付费区 -->
+        <path d="M 324.0 120.4 L 496.8 139.6 L 922.4 149.2 L 970.4 162.0 L 996.0 216.4 L 1050.4 286.8 L 848.8 248.4 L 500.0 216.4 L 464.8 216.4 L 407.2 242.0 L 336.8 219.6 L 324.0 149.2 Z" fill-opacity="0.12" stroke-width="0" style="fill:var(--rer-d)" />
 
-        <!-- RER 楼梯带（正下方为 RER D 两座岛台，再下一层 RER A） -->
-        <line x1="372.0" y1="152.4" x2="916.0" y2="152.4" stroke-width="2" stroke-dasharray="7 5" style="stroke:var(--rer-d)" />
-        <line x1="372.0" y1="216.4" x2="916.0" y2="216.4" stroke-width="2" stroke-dasharray="7 5" style="stroke:var(--rer-d)" />
-        <text x="381.6" y="211.6" font-size="11" style="fill:var(--text-dim)">↓ RER D 楼梯组沿两条虚线多处分布 · RER A 再下一层</text>
+        <!-- 两条 RER 下行梯带（贯穿全长，官方图主体结构） -->
+        <rect x="276.0" y="139.6" width="752.0" height="25.6" rx="6" fill-opacity="0.3" stroke-width="1.5" style="fill:var(--rer-d);stroke:var(--rer-d)" />
+        <rect x="276.0" y="203.6" width="752.0" height="25.6" rx="6" fill-opacity="0.3" stroke-width="1.5" style="fill:var(--rer-d);stroke:var(--rer-d)" />
+        <line x1="301.6" y1="136.6" x2="324.0" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="301.6" y1="200.6" x2="324.0" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="352.8" y1="136.6" x2="375.2" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="352.8" y1="200.6" x2="375.2" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="404.0" y1="136.6" x2="426.4" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="404.0" y1="200.6" x2="426.4" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="455.2" y1="136.6" x2="477.6" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="455.2" y1="200.6" x2="477.6" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="506.4" y1="136.6" x2="528.8" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="506.4" y1="200.6" x2="528.8" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="557.6" y1="136.6" x2="580.0" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="557.6" y1="200.6" x2="580.0" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="608.8" y1="136.6" x2="631.2" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="608.8" y1="200.6" x2="631.2" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="660.0" y1="136.6" x2="682.4" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="660.0" y1="200.6" x2="682.4" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="711.2" y1="136.6" x2="733.6" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="711.2" y1="200.6" x2="733.6" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="762.4" y1="136.6" x2="784.8" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="762.4" y1="200.6" x2="784.8" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="813.6" y1="136.6" x2="836.0" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="813.6" y1="200.6" x2="836.0" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="864.8" y1="136.6" x2="887.2" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="864.8" y1="200.6" x2="887.2" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="916.0" y1="136.6" x2="938.4" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="916.0" y1="200.6" x2="938.4" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="967.2" y1="136.6" x2="989.6" y2="168.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <line x1="967.2" y1="200.6" x2="989.6" y2="232.2" stroke-width="1.4" style="stroke:var(--rer-d)" />
+        <text x="288.8" y="156.4" font-size="11" font-weight="700" style="fill:var(--text)">Voies 1 et 3 ↓</text>
+        <text x="288.8" y="220.4" font-size="11" font-weight="700" style="fill:var(--text)">Voies 2 et 4 ↓</text>
+        <circle cx="1044.0" cy="152.4" r="10" style="fill:var(--rer-d)" /><text x="1044.0" y="156.4" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">D</text><circle cx="1082.4" cy="152.4" r="10" style="fill:var(--rer-a)" /><text x="1082.4" y="156.4" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">A</text>
+        <circle cx="1044.0" cy="216.4" r="10" style="fill:var(--rer-d)" /><text x="1044.0" y="220.4" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">D</text><circle cx="1082.4" cy="216.4" r="10" style="fill:var(--rer-a)" /><text x="1082.4" y="220.4" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">A</text>
+        <text x="1095.2" y="188.4" font-size="10.5" style="fill:var(--text-dim)">D 在 -3，A 在 -4</text>
 
-        <!-- 闸机线（实测位置） -->
+        <!-- 中央服务块 -->
+        <rect x="365.6" y="171.6" width="76.8" height="25.6" rx="4" fill-opacity="0.5" style="fill:var(--bg)" /><text x="404.0" y="188.4" text-anchor="middle" font-size="10.5" style="fill:var(--text-dim)">服务 · 失物招领</text>
+        <rect x="474.4" y="171.6" width="96.0" height="25.6" rx="4" fill-opacity="0.5" style="fill:var(--bg)" /><text x="522.4" y="188.4" text-anchor="middle" font-size="10.5" style="fill:var(--text-dim)">售票 RATP / SNCF</text>
+        <rect x="634.4" y="171.6" width="70.4" height="25.6" rx="4" fill-opacity="0.5" style="fill:var(--bg)" /><text x="669.5999999999999" y="188.4" text-anchor="middle" font-size="10.5" style="fill:var(--text-dim)">问询 · WiFi</text>
+        <rect x="762.4" y="171.6" width="140.8" height="25.6" rx="4" fill-opacity="0.5" style="fill:var(--bg)" /><text x="832.8" y="188.4" text-anchor="middle" font-size="10.5" style="fill:var(--text-dim)">商铺</text>
+
+        <!-- 闸机线（实测） -->
         <line x1="324.0" y1="120.4" x2="391.2" y2="149.2" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
         <line x1="996.0" y1="216.4" x2="1050.4" y2="286.8" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
         <line x1="586.4" y1="162.0" x2="589.6" y2="242.0" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
@@ -227,33 +264,34 @@
         <line x1="848.8" y1="235.6" x2="848.8" y2="248.4" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
         <line x1="436.0" y1="274.0" x2="439.2" y2="280.4" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
 
-        <!-- 北侧连接 -->
-        <text x="359.2" y="78.8" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">↑ Galerie Diderot：通 Hall 1（voie K/C 扶梯）与 M1</text>
-        <text x="359.2" y="93.8" text-anchor="middle" font-size="11" style="fill:var(--text-dim)">（M1 有自己的闸机线，换乘需再刷）</text>
-        <text x="864.8" y="43.6" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">↑ Hall 3 / Hall 2 · Sortie pl. Henri-Frenay</text>
+        <!-- 北侧：三组上主线的通道 + M1 -->
+        <circle cx="301.6" cy="104.4" r="10" style="fill:var(--m1)" /><text x="301.6" y="108.4" text-anchor="middle" font-weight="700" font-size="11" fill="#1c1c1e">1</text>
+        <text x="359.2" y="69.2" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">⇧ Galerie Diderot：Hall 1 / M 1 / Sortie Tour de l'Horloge</text>
+        <text x="516.0" y="88.4" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">⇧ Accès Grandes Lignes（voie K/C 扶梯）</text>
+        <text x="864.8" y="43.6" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">⇧ Hall 3 / Hall 2 · Sortie pl. Henri-Frenay</text>
 
-        <!-- 出入口（实测位置，出口方向多为单向） -->
+        <!-- 出口（官方名称，实测位置） -->
         <g font-size="11.5">
-          <text x="122.4" y="283.6" text-anchor="middle" style="fill:var(--text-dim)">⇢ Sortie rue Van Gogh（步行 14 min → Austerlitz）</text>
-          <text x="240.8" y="174.8" text-anchor="middle" style="fill:var(--text-dim)">⇢ 西侧出口</text>
-          <text x="573.6" y="248.4" text-anchor="middle" style="fill:var(--text-dim)">⇢ Sortie rue de Bercy</text>
-          <text x="490.4" y="299.6" text-anchor="middle" style="fill:var(--text-dim)">⇢ 南侧出口</text>
-          <text x="996.0" y="334.8" text-anchor="middle" style="fill:var(--text-dim)">⇢ Sortie rue Villiot</text>
-          <text x="1232" y="258.0" text-anchor="end" style="fill:var(--text-dim)">⇢ Sortie Ministère de l'Économie</text>
+          <text x="26" y="142.8" style="fill:var(--text-dim)">Sortie bd Diderot · CDG 大巴 ⇢</text>
+          <text x="26" y="308" style="fill:var(--text-dim)">⇣ Sortie rue Van Gogh（步行 14 min → Austerlitz）</text>
+          <text x="573.6" y="251.6" text-anchor="middle" style="fill:var(--text-dim)">⇣ Sortie rue de Bercy</text>
+          <text x="996.0" y="334.8" text-anchor="middle" style="fill:var(--text-dim)">⇣ Sortie rue Villiot</text>
+          <text x="1232" y="245.2" text-anchor="end" style="fill:var(--text-dim)">⇢ Sortie Min. de l'Économie</text>
+          <text x="1232" y="136.4" text-anchor="end" style="fill:var(--text-dim)">⇢ 步行 → Gare de Bercy</text>
+          <text x="797.6" y="264.4" text-anchor="middle" style="fill:var(--text-dim)">⇣ Sortie Économie</text>
         </g>
 
-        <!-- M14（南侧凸出部经通道往下） -->
-        <circle cx="599.2" cy="379.6" r="13" style="fill:var(--m14)" />
-        <text x="599.2" y="384.6" text-anchor="middle" font-weight="700" font-size="13" fill="#fff">14</text>
-        <text x="599.2" y="413.6" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">↓ M14 · Sortie Maison de la RATP</text>
-        <text x="599.2" y="428.6" text-anchor="middle" font-size="11" style="fill:var(--text-dim)">（通道内有 M14 闸机线）</text>
+        <!-- M14 的两个入口 -->
+        <circle cx="599.2" cy="379.6" r="10" style="fill:var(--m14)" /><text x="599.2" y="383.6" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">14</text>
+        <text x="599.2" y="413.6" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">⇣ M 14 · Sortie Maison de la RATP</text>
+        <circle cx="858.4" cy="283.6" r="9" style="fill:var(--m14)" /><text x="858.4" y="287.6" text-anchor="middle" font-weight="700" font-size="10" fill="#fff">14</text>
 
         <!-- 图例 -->
         <g font-size="12">
-          <line x1="900" y1="440" x2="936" y2="440" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
-          <text x="944" y="444" style="fill:var(--text-dim)">闸机线（刷卡处，实测）</text>
-          <rect x="900" y="458" width="36" height="14" fill-opacity="0.2" style="fill:var(--rer-d)" />
-          <text x="944" y="470" style="fill:var(--text-dim)">付费区 · 区外为自由通行区</text>
+          <line x1="880" y1="468" x2="916" y2="468" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
+          <text x="924" y="472" style="fill:var(--text-dim)">闸机线（刷卡处，实测）</text>
+          <rect x="880" y="484" width="36" height="13" fill-opacity="0.2" style="fill:var(--rer-d)" />
+          <text x="924" y="495" style="fill:var(--text-dim)">RER 付费区（进·出都过闸）· 区外自由通行</text>
         </g>
       </svg>
     </div>
