@@ -41,10 +41,9 @@
         <text x="688" y="178" font-size="12.5" style="fill:var(--text-dim)">voies 5–23 →</text>
         <text x="560" y="290" font-size="12.5" style="fill:var(--text-dim)">voies A–N（无 B、F）→ 东南</text>
 
-        <!-- Hall 3（-1，与街面平层，斜穿字母站台头端之下） -->
+        <!-- Hall 3（-1，与街面平层，横穿字母站台头端之下，北端拐臂通 pl. Henri-Frenay） -->
         <g>
-          <rect x="368" y="115" width="42" height="395" rx="12" fill-opacity="0.08" stroke-width="2.5" stroke-dasharray="8 5" style="fill:var(--m12);stroke:var(--m12)" />
-          <line x1="389" y1="122" x2="472" y2="70" stroke-width="2.5" stroke-dasharray="8 5" style="stroke:var(--m12)" />
+          <path d="M 368 510 L 368 152 L 452 66 L 482 88 L 410 196 L 410 510 Z" fill-opacity="0.08" stroke-width="2.5" stroke-dasharray="8 5" style="fill:var(--m12);stroke:var(--m12)" />
           <text x="389" y="318" font-weight="700" font-size="12.5" text-anchor="middle" transform="rotate(90 389 318)" style="fill:var(--m12)">Hall 3（-1 · 与街面平层）rue de Bercy ↔ pl. Henri-Frenay</text>
         </g>
 
@@ -59,8 +58,8 @@
         </g>
 
         <!-- Tour de l'Horloge -->
-        <rect x="66" y="435" width="30" height="30" rx="6" opacity="0.9" style="fill:var(--m10)" />
-        <text x="60" y="484" font-size="12.5" style="fill:var(--text-dim)">Tour de l'Horloge（67 m）</text>
+        <rect x="118" y="362" width="30" height="30" rx="6" opacity="0.9" style="fill:var(--m10)" />
+        <text x="22" y="491" font-size="12.5" style="fill:var(--text-dim)">Tour de l'Horloge（67 m）</text>
 
         <!-- Hall 2（Diderot 一侧，东移约 200 m） -->
         <g>
@@ -78,9 +77,13 @@
           <text x="178" y="51" font-size="12.5" style="fill:var(--text-dim)">站台在 bd Diderot 之下（浅层）</text>
         </g>
 
+        <!-- Galerie des Fresques（0 层，两组站台之间，L 形连接两厅） -->
+        <path d="M 285 214 H 488 V 154 H 512 V 238 H 285 Z" fill-opacity="0.06" stroke-width="2" stroke-dasharray="6 4" style="fill:var(--text-dim);stroke:var(--text-dim)" />
+        <text x="352" y="231" font-size="11.5" style="fill:var(--text-dim)">Galerie des Fresques</text>
+
         <!-- Galerie Diderot 连接 -->
-        <line x1="215" y1="210" x2="250" y2="66" stroke-width="3" stroke-dasharray="7 5" style="stroke:var(--text-dim)" />
-        <text x="238" y="140" font-size="12.5" style="fill:var(--text-dim)">Galerie Diderot（-1）</text>
+        <path d="M 206 210 L 240 66 L 262 66 L 228 210 Z" fill-opacity="0.06" stroke-width="2" stroke-dasharray="6 4" style="fill:var(--text-dim);stroke:var(--text-dim)" />
+        <text x="262" y="140" font-size="12.5" style="fill:var(--text-dim)">Galerie Diderot（-1）</text>
 
         <!-- RER + salle d'échanges（站台头端之下，轴线与站台平行） -->
         <g>
@@ -96,11 +99,11 @@
 
         <!-- M14（rue de Bercy 之下，站区西南） -->
         <g>
-          <rect x="270" y="472" width="260" height="52" rx="10" fill="none" stroke-width="2.5" stroke-dasharray="8 5" style="stroke:var(--m14)" />
-          <circle cx="296" cy="498" r="13" style="fill:var(--m14)" />
-          <text x="296" y="503" text-anchor="middle" font-weight="700" font-size="14" fill="#fff">14</text>
-          <text x="318" y="494" font-size="12.5" style="fill:var(--text-dim)">深层 · rue de Bercy 之下</text>
-          <text x="318" y="512" font-size="12.5" style="fill:var(--text-dim)">岛式站台旁有异域植物园</text>
+          <rect x="200" y="472" width="230" height="52" rx="10" fill="none" stroke-width="2.5" stroke-dasharray="8 5" style="stroke:var(--m14)" />
+          <circle cx="226" cy="498" r="13" style="fill:var(--m14)" />
+          <text x="226" y="503" text-anchor="middle" font-weight="700" font-size="14" fill="#fff">14</text>
+          <text x="248" y="494" font-size="12.5" style="fill:var(--text-dim)">深层 · rue de Bercy 之下</text>
+          <text x="248" y="512" font-size="12.5" style="fill:var(--text-dim)">岛式站台旁有异域植物园</text>
         </g>
       </svg>
     </div>
@@ -193,6 +196,62 @@
       </p>
     </section>
 
+
+    <h2>换乘大厅（-2 层）放大</h2>
+    <div class="panel scroll-x">
+      <svg viewBox="0 0 900 360" style="width: 100%; min-width: 620px; height: auto; font-family: inherit;">
+        <text x="60" y="26" font-size="12.5" style="fill:var(--text-dim)">图左＝西北（Diderot 端）· 图右＝东南（Villiot 端）· 上＝东北侧 · 下＝西南（Bercy）侧</text>
+
+        <!-- 大厅主体 -->
+        <rect x="60" y="160" width="780" height="90" rx="14" stroke-width="2.5" style="fill:var(--surface);stroke:var(--accent)" />
+        <text x="450" y="186" text-anchor="middle" font-weight="700" font-size="15" style="fill:var(--text)">salle d'échanges 换乘大厅（-2）</text>
+
+        <!-- RER 楼梯带 -->
+        <rect x="250" y="200" width="380" height="36" rx="8" fill="none" stroke-width="2" stroke-dasharray="6 4" style="stroke:var(--rer-d)" />
+        <g font-weight="700" font-size="12">
+          <rect x="262" y="208" width="22" height="22" rx="5" style="fill:var(--rer-d)" /><text x="273" y="224" text-anchor="middle" fill="#fff">D</text>
+          <rect x="290" y="208" width="22" height="22" rx="5" style="fill:var(--rer-a)" /><text x="301" y="224" text-anchor="middle" fill="#fff">A</text>
+        </g>
+        <text x="322" y="223" font-size="12" style="fill:var(--text-dim)">RER 楼梯组沿中段多处分布：↓ D（-3）· 再下一层 ↓ A（-4）</text>
+
+        <!-- 东北侧（上）分支 -->
+        <g stroke-width="2" stroke-dasharray="6 4" style="stroke:var(--text-dim)">
+          <rect x="84" y="112" width="26" height="48" rx="6" fill="none" />
+          <rect x="196" y="112" width="28" height="48" rx="6" fill="none" />
+          <rect x="641" y="112" width="28" height="48" rx="6" fill="none" />
+          <rect x="786" y="112" width="28" height="48" rx="6" fill="none" />
+        </g>
+        <circle cx="97" cy="92" r="12" style="fill:var(--m1)" />
+        <text x="97" y="97" text-anchor="middle" font-weight="700" font-size="13" fill="#1c1c1e">1</text>
+        <text x="97" y="66" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Sortie bd Diderot</text>
+        <text x="210" y="52" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Galerie Diderot ↕ Hall 1</text>
+        <text x="210" y="70" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">（voie K/C 扶梯落点）</text>
+        <text x="655" y="52" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">↑ Hall 2 / Hall 3</text>
+        <text x="655" y="70" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Sortie pl. Henri-Frenay</text>
+        <text x="800" y="52" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Sortie rue Villiot</text>
+        <text x="800" y="70" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Ministère de l'Économie</text>
+
+        <!-- 西南侧（下）分支 -->
+        <g stroke-width="2" stroke-dasharray="6 4" style="stroke:var(--text-dim)">
+          <rect x="136" y="250" width="28" height="48" rx="6" fill="none" />
+          <rect x="436" y="250" width="28" height="48" rx="6" fill="none" />
+          <rect x="546" y="250" width="28" height="48" rx="6" fill="none" />
+        </g>
+        <text x="150" y="318" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Sortie rue Van Gogh</text>
+        <text x="150" y="336" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">（步行 14 min → Austerlitz）</text>
+        <text x="450" y="318" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Sortie rue de Bercy</text>
+        <circle cx="560" cy="316" r="12" style="fill:var(--m14)" />
+        <text x="560" y="321" text-anchor="middle" font-weight="700" font-size="13" fill="#fff">14</text>
+        <text x="560" y="344" text-anchor="middle" font-size="11.5" style="fill:var(--text-dim)">Sortie Maison de la RATP</text>
+      </svg>
+    </div>
+    <p class="note" style="margin-top: 0.6rem;">
+      按 SNCF 官方 -2 层平面图绘制。迷路时先认两端：<strong>西北端（图左）＝ M1 与
+      bd Diderot 出口</strong>，<strong>东南端（图右）＝上 Hall 2 / Hall 3 的扶梯与
+      Villiot / 财政部出口</strong>；西南侧（图下）依次是 Van Gogh、rue de Bercy 出口和
+      14 号线（Maison de la RATP 旁）。RER 下行楼梯沿大厅中段多处分布，任选一组即可。
+    </p>
+
     <h2>典型换乘动线</h2>
     <section class="panel">
       <ul class="connections">
@@ -257,7 +316,7 @@
             items: [
               { x: 190, y: 130, w: 78, d: 125, h: 26, color: "--accent", topLabel: "Hall 1", topLabelSize: 13 },
               { x: 445, y: 20, w: 55, d: 80, h: 22, color: "--accent", topLabel: "Hall 2", topLabelSize: 12 },
-              { x: 305, y: 96, w: 335, d: 86, h: 3, color: "--border", opacity: 0.45, topLabel: "voies A–N →", topLabelSize: 12.5, topLabelColor: "var(--text-dim)", label: "字母站台（无 B、F）· rue de Bercy 一侧", labelDy: 20 },
+              { x: 270, y: 96, w: 370, d: 86, h: 3, color: "--border", opacity: 0.45, topLabel: "voies A–N →", topLabelSize: 12.5, topLabelColor: "var(--text-dim)", label: "字母站台（无 B、F）· rue de Bercy 一侧", labelDy: 20 },
               { x: 485, y: 35, w: 155, d: 61, h: 3, color: "--border", opacity: 0.45, topLabel: "voies 5–23 →", topLabelSize: 12, topLabelColor: "var(--text-dim)", label: "单数站台 · bd Diderot 一侧，头端东移约 200 m", labelDy: -36 },
               { x: 205, y: 245, w: 20, d: 20, h: 55, color: "--m10", label: "Tour de l'Horloge", labelSide: "left", labelDy: -16 },
               { poly: [[250,66],[445,66],[445,88],[272,88],[272,130],[250,130]], h: 4, color: "--text-dim", opacity: 0.55, label: "Galerie des Fresques（L 形连接两厅）", labelDy: -56 },
@@ -297,6 +356,7 @@
           { x: 398, y: 120, from: 0, to: -120, label: "字母站台 ↕ Hall 3" },
           { x: 405, y: 64, from: 0, to: -120, label: "Hall 2 / 单数站台 ↕ Hall 3", labelDy: -34 },
           { x: 227, y: 182, from: -120, to: -240, label: "Galerie ↕ 换乘大厅", labelDy: -20 },
+          { x: 220, y: 152, from: 0, to: -120, label: "Hall 1 ↕ Galerie", labelDy: -26 },
           { x: 400, y: 226, from: -120, to: -240, label: "Hall 3 ↕ 换乘大厅", labelDy: 12 },
           { x: 293, y: 207, from: -240, to: -360, label: "换乘大厅 ↕ RER D" },
           { x: 293, y: 207, from: -360, to: -480, label: "RER D ↕ RER A" },
