@@ -16,6 +16,9 @@
   --m11: #6e491e; --m12: #00643c; --m13: #82c8e6; --m14: #640082;
   --rer-a: #eb2132; --rer-b: #5091cb; --rer-c: #ffcc30;
   --rer-d: #008b5b; --rer-e: #b94e9a;
+
+  /* Châtelet–Les Halles 三扇区官方导向色（doré / bronze / bleu azur） */
+  --sect-forum: #c9a227; --sect-rivoli: #9c7a4b; --sect-seine: #4aa8d8;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -272,6 +275,12 @@ footer.site-footer {
   border-top: 4px solid var(--accent);
 }
 .zone h3 { margin: 0.2rem 0 0.2rem; }
+.sect-logo {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.32em;
+  margin-right: 0.4em;
+}
 .zone .zone-sub { color: var(--text-dim); font-size: 0.85rem; margin: 0 0 0.8rem; }
 .zone ul { padding-left: 1.2rem; margin: 0.4rem 0; }
 .zone li { margin: 0.25rem 0; }
