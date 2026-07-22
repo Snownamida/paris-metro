@@ -28,7 +28,7 @@
     const span = document.createElement("span");
     const slug = String(line).toLowerCase();
     const isRer = /^[a-e]$/.test(slug);
-    span.className = "line" + (isRer ? " rer" : "");
+    span.className = "line" + (isRer ? " rer" : "") + (String(line).length >= 3 ? " long" : "");
     span.style.background = isRer ? `var(--rer-${slug})` : `var(--m${slug})`;
     if (DARK_TEXT_LINES.has(String(line))) span.classList.add("dark-text");
     if (opts.future) {

@@ -2,10 +2,12 @@
  * 车型页渲染器：
  *  - 从 window.ROLLING_STOCK（assets/js/data/rolling-stock.js）读取数据；
  *  - 每个体系（胶轮/钢轮）渲染一张表：型号按入役年份从旧到新排列；
- *  - transitions 中的换代计划画成 SVG 箭头：从旧型号行内对应线路的
- *    标志出发，经表右侧的走线槽指向新型号所在行。
+ *  - transitions 中的换代计划画成 SVG 箭头：从旧型号行内相关线路标志
+ *    出发，经表右侧走线槽指向新型号所在行；逐线时间表列在表格下方。
  */
 (function () {
+  const SVG_NS = "http://www.w3.org/2000/svg";
+
   function el(tag, cls, text) {
     const e = document.createElement(tag);
     if (cls) e.className = cls;
@@ -13,9 +15,23 @@
     return e;
   }
 
+  function svgEl(tag, attrs) {
+    const e = document.createElementNS(SVG_NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function lineColor(line) {
+    return (
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--m" + String(line).toLowerCase())
+        .trim() || "currentColor"
+    );
+  }
+
   const STATUS_LABELS = {
     active: { text: "现役", cls: "st-active" },
-    "phasing-out": { text: "退役中", cls: "st-out" },
+    "phasing-out": { text: "换代中", cls: "st-out" },
     delivering: { text: "交付中", cls: "st-new" },
     future: { text: "未来车型", cls: "st-future" },
   };
@@ -57,7 +73,7 @@
         const item = el("span", "line-item");
         item.dataset.line = l.line;
         const badge = window.lineBadge(l.line, { future: l.future });
-        if (l.note) badge.title = l.note;
+        if (l.note) badge.title = l.line + " 号线：" + l.note;
         item.appendChild(badge);
         lineWrap.appendChild(item);
       });
@@ -70,11 +86,29 @@
     wrap.appendChild(table);
 
     // 箭头图层
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.classList.add("arrow-layer");
+    const svg = svgEl("svg", { class: "arrow-layer" });
     wrap.appendChild(svg);
-
     panel.appendChild(wrap);
+
+    // 逐线换代时间表
+    if ((system.transitions || []).length) {
+      const sched = el("div", "transition-sched");
+      sched.appendChild(el("h3", null, "换代时间表"));
+      const ul = el("ul");
+      system.transitions.forEach(function (t) {
+        const fromName = (system.models.find((m) => m.id === t.from) || {}).name || t.from;
+        const toName = (system.models.find((m) => m.id === t.to) || {}).name || t.to;
+        t.lines.forEach(function (l) {
+          const li = el("li");
+          li.appendChild(window.lineBadge(l.line));
+          li.appendChild(el("span", null, fromName + " → " + toName + "（" + l.label + "）"));
+          ul.appendChild(li);
+        });
+      });
+      sched.appendChild(ul);
+      panel.appendChild(sched);
+    }
+
     container.appendChild(panel);
 
     function drawArrows() {
@@ -83,58 +117,58 @@
       svg.setAttribute("width", wrap.scrollWidth);
       svg.setAttribute("height", wrap.scrollHeight);
 
-      (system.transitions || []).forEach(function (t, i) {
+      (system.transitions || []).forEach(function (t, lane) {
         const fromRow = tbody.querySelector('tr[data-model="' + t.from + '"]');
         const toRow = tbody.querySelector('tr[data-model="' + t.to + '"]');
         if (!fromRow || !toRow) return;
-        const badge = fromRow.querySelector('.line-item[data-line="' + t.line + '"]');
-        if (!badge) return;
 
-        const b = badge.getBoundingClientRect();
-        const r = toRow.getBoundingClientRect();
-        const table_ = table.getBoundingClientRect();
+        // 参与换代的线路标志的联合包围盒
+        let right = -Infinity, top = Infinity, bottom = -Infinity;
+        t.lines.forEach(function (l) {
+          const badge = fromRow.querySelector('.line-item[data-line="' + l.line + '"]');
+          if (!badge) return;
+          const b = badge.getBoundingClientRect();
+          right = Math.max(right, b.right);
+          top = Math.min(top, b.top);
+          bottom = Math.max(bottom, b.bottom);
+        });
+        if (right === -Infinity) return;
 
-        // 起点：线路标志右缘；走线槽：表格右侧，按序号错开；终点：目标行右缘
-        const x0 = b.right - wrapBox.left + 4;
-        const y0 = b.top + b.height / 2 - wrapBox.top;
-        const gutterX = table_.right - wrapBox.left + 14 + i * 12;
-        const x1 = table_.right - wrapBox.left + 2;
-        const y1 = r.top + r.height / 2 - wrapBox.top;
+        const tableBox = table.getBoundingClientRect();
+        const toBox = toRow.getBoundingClientRect();
 
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        const d =
+        const x0 = right - wrapBox.left + 5;
+        const y0 = (top + bottom) / 2 - wrapBox.top;
+        const gutterX = tableBox.right - wrapBox.left + 12 + lane * 16;
+        const x1 = tableBox.right - wrapBox.left + 2;
+        const y1 = toBox.top + toBox.height / 2 - wrapBox.top;
+        const s = Math.sign(y1 - y0) || 1;
+
+        const color = lineColor(t.lines[0].line);
+        const path = svgEl("path", { class: "arrow-path", stroke: color });
+        path.setAttribute(
+          "d",
           "M " + x0 + " " + y0 +
           " H " + (gutterX - 10) +
-          " Q " + gutterX + " " + y0 + " " + gutterX + " " + (y0 + Math.sign(y1 - y0) * 10) +
-          " V " + (y1 - Math.sign(y1 - y0) * 10) +
+          " Q " + gutterX + " " + y0 + " " + gutterX + " " + (y0 + s * 10) +
+          " V " + (y1 - s * 10) +
           " Q " + gutterX + " " + y1 + " " + (gutterX - 10) + " " + y1 +
-          " H " + (x1 + 8);
-        path.setAttribute("d", d);
-        path.setAttribute("class", "arrow-path");
-        const color = getComputedStyle(document.documentElement)
-          .getPropertyValue("--m" + String(t.line).toLowerCase())
-          .trim() || "currentColor";
-        path.setAttribute("stroke", color);
+          " H " + (x1 + 9)
+        );
+        const fromName = (system.models.find((m) => m.id === t.from) || {}).name || t.from;
+        const toName = (system.models.find((m) => m.id === t.to) || {}).name || t.to;
+        const tip = svgEl("title", {});
+        tip.textContent = fromName + " → " + toName + "：" + (t.label || "");
+        path.appendChild(tip);
         svg.appendChild(path);
 
-        // 箭头头部（指向目标行）
-        const head = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        head.setAttribute(
-          "d",
-          "M " + (x1 + 9) + " " + (y1 - 5) + " L " + (x1 + 1) + " " + y1 +
-          " L " + (x1 + 9) + " " + (y1 + 5) + " Z"
-        );
-        head.setAttribute("fill", color);
+        const head = svgEl("path", {
+          fill: color,
+          d:
+            "M " + (x1 + 10) + " " + (y1 - 5) + " L " + (x1 + 1) + " " + y1 +
+            " L " + (x1 + 10) + " " + (y1 + 5) + " Z",
+        });
         svg.appendChild(head);
-
-        if (t.label) {
-          const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
-          txt.setAttribute("x", gutterX + 6);
-          txt.setAttribute("y", (y0 + y1) / 2);
-          txt.setAttribute("class", "arrow-label");
-          txt.textContent = t.label;
-          svg.appendChild(txt);
-        }
       });
     }
 

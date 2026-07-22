@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>巴黎里昂站结构 · 巴黎轨道交通手册</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <script src="../assets/js/site.js" data-root="../"></script>
+</head>
+<body>
+  <main>
+    <h1>巴黎里昂站（Paris-Gare-de-Lyon）</h1>
+    <p class="lead">
+      东南干线（TGV Sud-Est、Lyria）与 Transilien R 的起点站，地面共 22 条到发线，
+      分属 Hall 1 与 Hall 2 两个大厅；地下叠有 Hall 3 走廊层、换乘大厅、
+      RER A / D 与地铁 1、14 号线。站台一般在发车前约 20 分钟才公布。
+    </p>
+
+    <h2>平面示意（不按比例）</h2>
+    <div class="panel scroll-x">
+      <svg viewBox="0 0 820 560" style="width: 100%; min-width: 560px; height: auto; font-family: inherit;">
+        <!-- 街道参照 -->
+        <rect x="20" y="30" width="780" height="34" fill="var(--text-dim)" opacity="0.12" rx="8" />
+        <text x="36" y="52" fill="var(--text-dim)" font-size="13">boulevard Diderot（北侧）</text>
+        <rect x="20" y="480" width="780" height="34" fill="var(--text-dim)" opacity="0.12" rx="8" />
+        <text x="36" y="502" fill="var(--text-dim)" font-size="13">rue de Bercy（南侧）</text>
+        <rect x="20" y="80" width="90" height="384" fill="var(--text-dim)" opacity="0.12" rx="8" />
+        <text x="65" y="200" fill="var(--text-dim)" font-size="13" transform="rotate(90 65 200)">place Louis-Armand（站前广场）</text>
+
+        <!-- 站台轨道示意 -->
+        <g stroke="var(--text-dim)" stroke-width="2" opacity="0.45">
+          <line x1="330" y1="105" x2="790" y2="105" />
+          <line x1="330" y1="125" x2="790" y2="125" />
+          <line x1="330" y1="145" x2="790" y2="145" />
+          <line x1="390" y1="310" x2="790" y2="310" />
+          <line x1="390" y1="330" x2="790" y2="330" />
+          <line x1="390" y1="350" x2="790" y2="350" />
+        </g>
+        <text x="560" y="96" fill="var(--text-dim)" font-size="12.5">voies A–N（无 B、F）→ 东南方向</text>
+        <text x="640" y="300" fill="var(--text-dim)" font-size="12.5">voies 5–23（仅单数）→</text>
+
+        <!-- Hall 1 -->
+        <g>
+          <rect x="130" y="85" width="195" height="120" rx="12" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5" />
+          <text x="148" y="115" font-weight="700" font-size="16" fill="var(--text)">Hall 1（原蓝厅）</text>
+          <text x="148" y="137" font-size="12.5" fill="var(--text-dim)">历史主厅 · 12 条字母到发线</text>
+          <text x="148" y="156" font-size="12.5" fill="var(--text-dim)">Le Train Bleu 位于其上层</text>
+          <text x="148" y="175" font-size="12.5" fill="var(--text-dim)">Transilien R 常发于 voies J–N</text>
+        </g>
+
+        <!-- Tour de l'Horloge -->
+        <rect x="112" y="210" width="30" height="30" rx="6" fill="var(--m10)" opacity="0.9" />
+        <text x="150" y="230" font-size="12.5" fill="var(--text-dim)">Tour de l'Horloge（钟楼，67 m）</text>
+
+        <!-- Hall 2 -->
+        <g>
+          <rect x="190" y="290" width="195" height="110" rx="12" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5" />
+          <text x="208" y="320" font-weight="700" font-size="16" fill="var(--text)">Hall 2（原黄厅）</text>
+          <text x="208" y="342" font-size="12.5" fill="var(--text-dim)">1927 年扩建 · 10 条单数到发线</text>
+          <text x="208" y="361" font-size="12.5" fill="var(--text-dim)">现大厅 2012 年落成</text>
+          <text x="208" y="380" font-size="12.5" fill="var(--text-dim)">OUIGO 常用</text>
+        </g>
+
+        <!-- Hall 3（-1，横穿站台之下） -->
+        <g>
+          <rect x="470" y="100" width="42" height="378" rx="12" fill="var(--m12)" fill-opacity="0.08" stroke="var(--m12)" stroke-width="2.5" stroke-dasharray="8 5" />
+          <text x="491" y="289" font-weight="700" font-size="12.5" fill="var(--m12)" text-anchor="middle" transform="rotate(90 491 289)">Hall 3（-1 层）· rue de Bercy ↔ place Henri-Frenay</text>
+        </g>
+
+        <!-- M1 -->
+        <g>
+          <rect x="330" y="24" width="240" height="44" rx="10" fill="none" stroke="var(--m1)" stroke-width="2.5" stroke-dasharray="8 5" />
+          <circle cx="356" cy="46" r="13" fill="var(--m1)" />
+          <text x="356" y="51" text-anchor="middle" font-weight="700" font-size="14" fill="#1c1c1e">1</text>
+          <text x="378" y="51" font-size="12.5" fill="var(--text-dim)">站台在 bd Diderot 之下（-1 浅层）</text>
+        </g>
+
+        <!-- Galerie Diderot 连接 -->
+        <line x1="300" y1="85" x2="345" y2="66" stroke="var(--text-dim)" stroke-width="3" stroke-dasharray="7 5" />
+        <text x="212" y="76" font-size="12.5" fill="var(--text-dim)">Galerie Diderot（-1）</text>
+
+        <!-- RER + salle d'échanges -->
+        <g>
+          <rect x="140" y="418" width="325" height="50" rx="10" fill="none" stroke="var(--rer-a)" stroke-width="2.5" stroke-dasharray="8 5" />
+          <g font-weight="700" font-size="13">
+            <rect x="156" y="430" width="24" height="24" rx="6" fill="var(--rer-a)" /><text x="168" y="447" text-anchor="middle" fill="#fff">A</text>
+            <rect x="186" y="430" width="24" height="24" rx="6" fill="var(--rer-d)" /><text x="198" y="447" text-anchor="middle" fill="#fff">D</text>
+          </g>
+          <text x="220" y="440" font-size="12.5" fill="var(--text-dim)">换乘大厅（-2）之下双层叠置：</text>
+          <text x="220" y="458" font-size="12.5" fill="var(--text-dim)">RER D 在上（-3），RER A 在下（-4）</text>
+        </g>
+
+        <!-- M14 -->
+        <g>
+          <rect x="517" y="418" width="273" height="50" rx="10" fill="none" stroke="var(--m14)" stroke-width="2.5" stroke-dasharray="8 5" />
+          <circle cx="543" cy="443" r="13" fill="var(--m14)" />
+          <text x="543" y="448" text-anchor="middle" font-weight="700" font-size="14" fill="#fff">14</text>
+          <text x="565" y="440" font-size="12.5" fill="var(--text-dim)">深层，rue de Bercy 之下</text>
+          <text x="565" y="458" font-size="12.5" fill="var(--text-dim)">岛式站台旁有异域植物园</text>
+        </g>
+      </svg>
+    </div>
+
+    <h2>地面与 -1 层：三个大厅</h2>
+    <div class="zone-grid">
+      <section class="panel zone" style="border-top-color: var(--accent);">
+        <h3>Hall 1（原「蓝厅」）</h3>
+        <p class="zone-sub">地面层 · 正对 place Louis-Armand 的历史站房</p>
+        <ul>
+          <li>12 条字母编号到发线 <strong>voies A–N</strong>（无 B、无 F）</li>
+          <li>Transilien R（往 Montereau / Montargis）正常在 voies J–N 发车</li>
+          <li>TGV inOui / Lyria 两厅均有使用，Hall 1 历史上以国际及东南干线为主</li>
+          <li>上层为 1900 年世博会时期的豪华餐厅 <strong>Le Train Bleu</strong>（1972 年列为历史古迹）</li>
+          <li>2011 年 12 月起弃用颜色命名，改称 Hall 1</li>
+        </ul>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--accent);">
+        <h3>Hall 2（原「黄厅」）</h3>
+        <p class="zone-sub">地面层 · rue de Bercy 一侧，1925–1927 年扩建</p>
+        <ul>
+          <li>10 条数字编号到发线 <strong>voies 5–23（仅单数）</strong></li>
+          <li>现今大厅建筑经三年改造后于 2012 年 6 月落成</li>
+          <li>OUIGO 列车常用此厅；大厅/站台分配是动态的，以现场屏幕为准</li>
+          <li>站台端头有扶梯和坡道通往 Hall 3</li>
+        </ul>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--m12);">
+        <h3>Hall 3（原 salle Méditerranée）</h3>
+        <p class="zone-sub">-1 层 · 因 1900 年世博会的地中海城市壁画得名</p>
+        <ul>
+          <li>与站台大致垂直、横穿整个车站的走廊层，
+            从 <strong>rue de Bercy</strong> 一直通到 <strong>place Henri-Frenay</strong></li>
+          <li>经楼梯/扶梯直达所有地面站台</li>
+          <li>是地面大厅与地下车站（RER / 地铁）之间的枢纽层</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2>地下：RER 与地铁</h2>
+    <div class="zone-grid">
+      <section class="panel zone" style="border-top-color: var(--rer-a);">
+        <h3>RER 地下站</h3>
+        <p class="zone-sub">rue de Bercy 一侧地下，两层叠置（1977 年建成）</p>
+        <div class="line-wrap"><span data-line="A"></span><span data-line="D"></span></div>
+        <ul>
+          <li><strong>RER D 在上（约 -3 层）</strong>：4 轨 2 座岛式站台，
+            轨道自西向东编号 2、4、3、1；北往 Creil，南往 Corbeil-Essonnes / Melun 等</li>
+          <li><strong>RER A 在下（约 -4 层）</strong>：2 轨夹 1 座特宽岛式站台；
+            西往 Saint-Germain-en-Laye / Cergy / Poissy，东往 Marne-la-Vallée / Boissy</li>
+          <li>两线均经 -2 层换乘大厅（salle d'échanges）上至 Hall 3</li>
+        </ul>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--m1);">
+        <h3>地铁 1 号线</h3>
+        <p class="zone-sub">boulevard Diderot 之下，明挖浅层</p>
+        <div class="line-wrap"><span data-line="1"></span></div>
+        <ul>
+          <li>原始设计为 4 轨 2 座岛式站台（站台加宽至 6 m、加长至 100 m）</li>
+          <li>现只用中间 2 轨：南侧一轨为与 5 号线的联络线（玻璃隔墙隔开），
+            北侧一轨停用并用于加宽往 La Défense 方向站台</li>
+          <li>经 <strong>Galerie Diderot（-1）</strong>直通 Hall 1，是地铁换 TGV 最快路径</li>
+        </ul>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--m14);">
+        <h3>地铁 14 号线</h3>
+        <p class="zone-sub">主站以南，rue de Bercy 之下深层</p>
+        <div class="line-wrap"><span data-line="14"></span></div>
+        <ul>
+          <li>空间受限，采用 1 座中央岛式站台 + 两侧 2 轨</li>
+          <li>往 Aéroport d'Orly 方向轨道旁设有著名的异域植物园（jardin exotique）</li>
+          <li>主要经 -2 层换乘大厅连接 Hall 3 与 RER A / D</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2>竖向层级</h2>
+    <section class="panel levels">
+      <div class="level-row">
+        <div class="level-tag">0</div>
+        <div class="level-body">
+          <span class="level-name">Hall 1（voies A–N）、Hall 2（voies 5–23）、站前广场 place Louis-Armand</span>
+          <div class="level-desc">发车站台一般提前约 20 分钟公布（蓝底出发 / 绿底到达）；钟楼 Tour de l'Horloge（67 m）矗立于广场一角</div>
+        </div>
+      </div>
+      <div class="level-row">
+        <div class="level-tag">-1</div>
+        <div class="level-body">
+          <span class="level-name">Hall 3、Galerie Diderot、地铁 1 号线站台
+            <span class="line-wrap"><span data-line="1"></span></span>
+          </span>
+          <div class="level-desc">Hall 3 贯通 rue de Bercy ↔ place Henri-Frenay；Galerie Diderot 连接 Hall 1 与 1 号线</div>
+        </div>
+      </div>
+      <div class="level-row">
+        <div class="level-tag">-2</div>
+        <div class="level-body">
+          <span class="level-name">salle d'échanges 换乘大厅</span>
+          <div class="level-desc">连接 Hall 3、地铁 1 / 14 号线与 RER A / D 的枢纽层</div>
+        </div>
+      </div>
+      <div class="level-row">
+        <div class="level-tag">-3</div>
+        <div class="level-body">
+          <span class="level-name">RER D 站台
+            <span class="line-wrap"><span data-line="D"></span></span>
+          </span>
+          <div class="level-desc">4 轨 2 座岛式站台；仅这 4 条轨道接入通往 Châtelet–Les Halles 的隧道</div>
+        </div>
+      </div>
+      <div class="level-row">
+        <div class="level-tag">-4</div>
+        <div class="level-body">
+          <span class="level-name">RER A 站台
+            <span class="line-wrap"><span data-line="A"></span></span>
+            与 14 号线站台（深层）
+            <span class="line-wrap"><span data-line="14"></span></span>
+          </span>
+          <div class="level-desc">RER A 位于 RER D 正下方；14 号线深埋于 rue de Bercy 之下（层级编号为惯用口径，非精确标高）</div>
+        </div>
+      </div>
+    </section>
+
+    <h2>典型换乘动线</h2>
+    <section class="panel">
+      <ul class="connections">
+        <li><strong>TGV（Hall 1 / 2）→ RER</strong>：Hall 1 在 voie K 与 voie C 对面各有一组扶梯
+          直下地下站；或任一大厅先到 Hall 3（-1）→ 换乘大厅（-2）→ RER D / A。</li>
+        <li><strong>地铁 1 号线 → TGV</strong>：经 Galerie Diderot（-1）直入 Hall 1，最短路径。</li>
+        <li><strong>地铁 14 号线 / RER → TGV</strong>：上行经换乘大厅（-2）→ Hall 3（-1）→ 各站台。</li>
+        <li>官方建议从地铁 / RER 到发车站台<strong>预留约 10 分钟</strong>。</li>
+      </ul>
+    </section>
+
+    <h2>出入口</h2>
+    <div class="zone-grid">
+      <section class="panel zone" style="border-top-color: var(--accent);">
+        <h3>干线车站主入口（3 个）</h3>
+        <ul>
+          <li><strong>Parvis / place Louis-Armand</strong>：站前广场主入口，通 boulevard Diderot，钟楼所在</li>
+          <li><strong>Rue de Bercy</strong>：南侧，Hall 3 西端</li>
+          <li><strong>Place Henri-Frenay</strong>：东侧，Hall 3 东端</li>
+        </ul>
+        <p class="zone-sub" style="margin-top: 0.6rem;">公交车站位于 rue de Bercy 与 boulevard Diderot；
+          经 rue Van-Gogh 和 Pont Charles-de-Gaulle 可步行至 Gare d'Austerlitz。</p>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--m1);">
+        <h3>地铁站编号出入口（共 12 个，编号不连续）</h3>
+        <ol class="exit-list">
+          <li value="1">Boulevard Diderot</li>
+          <li value="2">Ministère de l'Économie et des Finances</li>
+          <li value="3">Rue Michel Chasles（仅出站）</li>
+          <li value="4">Cour de Chalon</li>
+          <li value="6">Tour de l'Horloge</li>
+          <li value="7">Rue de Bercy</li>
+          <li value="9">Place Henri-Frenay</li>
+          <li value="10">Rue de Chalon / boulevard Diderot</li>
+          <li value="11">Rue de Chalon / boulevard Diderot</li>
+          <li value="15">Rue de Bercy 一侧（另含 12、13 号口）</li>
+        </ol>
+      </section>
+    </div>
+
+    <p class="note">
+      地铁站 2021 年进站量 2860 万人次，居巴黎地铁第 3 位。大厅命名于 2011 年 12 月由
+      「蓝厅/黄厅」改为 Hall 1 / Hall 2，原 salle Méditerranée 成为 Hall 3，此后未再变动。
+      资料主要来自法语维基百科、garedelyon.fr 官方向导与 Transilien 官方博客，核实于 2026 年 7 月。
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    数据核实于 2026 年 7 月，主要来源：法语维基百科、RATP、Île-de-France Mobilités。
+  </footer>
+</body>
+</html>
