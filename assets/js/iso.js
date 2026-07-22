@@ -92,6 +92,19 @@
         const color = cssColor(it.color || "--text-dim");
         const info = prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color);
         track(info.topCenter);
+        // 直接印在顶面上的文字（沿等轴测 x 方向铺在面内）
+        if (it.topLabel) {
+          const t = el("text", {
+            x: 0, y: 4.5,
+            transform: "matrix(0.866 0.5 -0.866 0.5 " + info.topCenter[0] + " " + info.topCenter[1] + ")",
+            "text-anchor": "middle",
+            "font-size": it.topLabelSize || 12.5,
+            "font-weight": "700",
+          });
+          t.setAttribute("style", "fill:" + (it.topLabelColor || "#fff"));
+          t.textContent = it.topLabel;
+          g.appendChild(t);
+        }
         if (it.label) {
           const side = it.labelSide || "right";
           const lx = side === "right" ? px(fw, 0, lv.z)[0] + 46 : px(0, fd, lv.z)[0] - 46;

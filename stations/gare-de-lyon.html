@@ -251,8 +251,8 @@
           {
             id: "0", z: 0, tag: "0", label: "地面大厅",
             items: [
-              { x: 10, y: 30, w: 110, d: 90, h: 30, color: "--accent", label: "Hall 1（voies A–N）", labelSide: "left" },
-              { x: 55, y: 150, w: 110, d: 85, h: 24, color: "--accent", label: "Hall 2（voies 5–23）", labelSide: "left", labelDy: -6 },
+              { x: 10, y: 30, w: 110, d: 90, h: 30, color: "--accent", topLabel: "Hall 1 · A–N", topLabelSize: 11.5 },
+              { x: 55, y: 150, w: 110, d: 85, h: 24, color: "--accent", topLabel: "Hall 2 · 5–23", topLabelSize: 11.5 },
               { x: 8, y: 124, w: 20, d: 20, h: 55, color: "--m10", label: "Tour de l'Horloge", labelSide: "left", labelDy: -14 },
               { x: 120, y: 35, w: 270, d: 80, h: 3, color: "--border", label: "字母站台（往东南）→", labelDy: -8 },
               { x: 165, y: 150, w: 225, d: 85, h: 3, color: "--border", label: "单数站台 →", labelDy: 10 },
@@ -261,7 +261,7 @@
           {
             id: "-1", z: -120, tag: "-1", label: "Hall 3 · 地铁 1 号线",
             items: [
-              { x: 120, y: 4, w: 120, d: 24, h: 18, color: "--m1", label: "地铁 1 号线站台" },
+              { x: 120, y: 4, w: 120, d: 24, h: 18, color: "--m1", topLabel: "地铁 1 号线", topLabelSize: 11.5, topLabelColor: "#1c1c1e" },
               { x: 20, y: 28, w: 100, d: 16, h: 12, color: "--text-dim", label: "Galerie Diderot（通 Hall 1）", labelSide: "left", labelDy: 26 },
               { x: 250, y: 10, w: 40, d: 240, h: 20, color: "--m12", label: "Hall 3 走廊（贯通站台之下）", labelDy: 14 },
             ],
@@ -269,30 +269,30 @@
           {
             id: "-2", z: -240, tag: "-2", label: "换乘大厅",
             items: [
-              { x: 150, y: 140, w: 150, d: 95, h: 20, color: "--accent", label: "salle d'échanges 换乘大厅（枢纽）" },
+              { x: 150, y: 140, w: 150, d: 95, h: 20, color: "--accent", topLabel: "换乘大厅（枢纽）", label: "salle d'échanges" },
             ],
           },
           {
             id: "-3", z: -360, tag: "-3", label: "RER D",
             items: [
-              { x: 60, y: 150, w: 280, d: 25, h: 14, color: "--rer-d", label: "RER D：4 轨 2 岛式站台", labelDy: -6 },
+              { x: 60, y: 150, w: 280, d: 25, h: 14, color: "--rer-d", topLabel: "RER D · 4 轨 2 岛台", topLabelSize: 12 },
               { x: 60, y: 195, w: 280, d: 25, h: 14, color: "--rer-d" },
             ],
           },
           {
             id: "-4", z: -480, tag: "-4", label: "RER A · 地铁 14 号线",
             items: [
-              { x: 60, y: 165, w: 280, d: 45, h: 14, color: "--rer-a", label: "RER A：特宽岛式站台", labelDy: -8 },
-              { x: 200, y: 235, w: 170, d: 23, h: 14, color: "--m14", label: "地铁 14 号线（南侧深处）", labelDy: 16 },
+              { x: 60, y: 165, w: 280, d: 45, h: 14, color: "--rer-a", topLabel: "RER A · 特宽岛台", topLabelSize: 12 },
+              { x: 200, y: 235, w: 170, d: 23, h: 14, color: "--m14", topLabel: "地铁 14 号线", topLabelSize: 11.5 },
             ],
           },
         ],
         connectors: [
-          { x: 100, y: 75, from: 0, to: -240, label: "voie K/C 对面扶梯直下", labelDy: -30 },
+          { x: 140, y: 75, from: 0, to: -240, label: "voie K/C 对面扶梯直下", labelDy: -30 },
           { x: 60, y: 36, from: 0, to: -120 },
           { x: 270, y: 80, from: 0, to: -120 },
           { x: 270, y: 200, from: 0, to: -120, label: "各站台 ↕ Hall 3" },
-          { x: 270, y: 190, from: -120, to: -240, label: "Hall 3 ↕ 换乘大厅" },
+          { x: 270, y: 200, from: -120, to: -240, label: "Hall 3 ↕ 换乘大厅" },
           { x: 220, y: 190, from: -240, to: -360 },
           { x: 220, y: 190, from: -360, to: -480, label: "RER D ↕ RER A" },
           { x: 290, y: 238, from: -240, to: -480, label: "换乘大厅 ↕ M14", labelDy: 40 },
