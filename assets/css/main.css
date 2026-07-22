@@ -292,6 +292,32 @@ footer.site-footer {
 
 .connections li { margin: 0.45rem 0; }
 
+/* 等轴测剖视图 */
+.iso-legend {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+.iso-legend button {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 99px;
+  padding: 0.25rem 0.85rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.iso-legend button:hover { border-color: var(--accent); }
+.iso-legend button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.iso-level { transition: opacity 0.25s ease; }
+.iso-level.iso-dim { opacity: 0.13; }
+
 /* 楼层剖面示意 */
 .levels { margin-top: 1rem; }
 .level-row {
