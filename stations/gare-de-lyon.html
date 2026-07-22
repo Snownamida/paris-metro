@@ -43,8 +43,9 @@
 
         <!-- Hall 3（-1，与街面平层，斜穿字母站台头端之下） -->
         <g>
-          <rect x="80" y="279" width="500" height="42" rx="12" fill-opacity="0.08" stroke-width="2.5" stroke-dasharray="8 5" transform="rotate(-49 330 300)" style="fill:var(--m12);stroke:var(--m12)" />
-          <text x="408" y="222" font-weight="700" font-size="12.5" text-anchor="middle" transform="rotate(-49 404 217)" style="fill:var(--m12)">Hall 3（-1 · 与街面平层）rue de Bercy ↔ pl. Henri-Frenay</text>
+          <rect x="368" y="115" width="42" height="395" rx="12" fill-opacity="0.08" stroke-width="2.5" stroke-dasharray="8 5" style="fill:var(--m12);stroke:var(--m12)" />
+          <line x1="389" y1="122" x2="472" y2="70" stroke-width="2.5" stroke-dasharray="8 5" style="stroke:var(--m12)" />
+          <text x="389" y="318" font-weight="700" font-size="12.5" text-anchor="middle" transform="rotate(90 389 318)" style="fill:var(--m12)">Hall 3（-1 · 与街面平层）rue de Bercy ↔ pl. Henri-Frenay</text>
         </g>
 
         <!-- Hall 1 -->
@@ -133,8 +134,8 @@
         <h3>Hall 3（原 salle Méditerranée）</h3>
         <p class="zone-sub">-1 层（与街面平层——站台层其实高于街面一层）· 因 1900 年世博会的地中海城市壁画得名</p>
         <ul>
-          <li>斜向东北、从字母站台头端之下穿过的走廊层，
-            从 <strong>rue de Bercy</strong> 一直通到 <strong>place Henri-Frenay</strong></li>
+          <li>与站台轴线大致垂直、在站台头端以东约 150 m 处横穿站场的走廊层，
+            南端接 <strong>rue de Bercy</strong>，北端折向东北通 <strong>place Henri-Frenay</strong></li>
           <li>经楼梯/扶梯直达所有地面站台</li>
           <li>是地面大厅与地下车站（RER / 地铁）之间的枢纽层</li>
         </ul>
@@ -265,7 +266,7 @@
           {
             id: "-1", z: -120, tag: "-1", label: "街面标高：Hall 3 · 地铁 1 号线",
             items: [
-              { x: 160, y: 112, w: 320, d: 26, h: 16, color: "--m12", angle: -51, topLabel: "Hall 3（与街面平层）", topLabelSize: 12 },
+              { x: 307, y: 127, w: 185, d: 26, h: 16, color: "--m12", angle: -90, topLabel: "Hall 3（与街面平层）", topLabelSize: 12 },
               { x: 110, y: 28, w: 110, d: 20, h: 14, color: "--m1", angle: -49, topLabel: "地铁 1 号线", topLabelSize: 11, topLabelColor: "#1c1c1e" },
               { x: 125, y: 100, w: 150, d: 18, h: 12, color: "--text-dim", angle: 67, label: "Galerie Diderot（Hall 1 ↔ M1 / RER）", labelSide: "left", labelDy: 6 },
             ],
@@ -293,10 +294,10 @@
         ],
         connectors: [
           { x: 215, y: 200, from: 0, to: -240, label: "voie K/C 对面扶梯直下", labelDy: -36 },
-          { x: 327, y: 117, from: 0, to: -120, label: "字母站台 ↕ Hall 3" },
-          { x: 415, y: 18, from: 0, to: -120, label: "Hall 2 坡道 ↕ Hall 3", labelDy: -34 },
-          { x: 227, y: 182, from: -120, to: -240, label: "Galerie ↕ 换乘大厅", labelDy: 10 },
-          { x: 225, y: 240, from: -120, to: -240 },
+          { x: 398, y: 120, from: 0, to: -120, label: "字母站台 ↕ Hall 3" },
+          { x: 400, y: 58, from: 0, to: -120, label: "Hall 2 / 单数站台 ↕ Hall 3", labelDy: -34 },
+          { x: 227, y: 182, from: -120, to: -240, label: "Galerie ↕ 换乘大厅", labelDy: -20 },
+          { x: 400, y: 226, from: -120, to: -240, label: "Hall 3 ↕ 换乘大厅", labelDy: 12 },
           { x: 293, y: 207, from: -240, to: -360, label: "换乘大厅 ↕ RER D" },
           { x: 293, y: 207, from: -360, to: -480, label: "RER D ↕ RER A" },
           { x: 300, y: 242, from: -240, to: -480, label: "换乘大厅 ↕ M14", labelDy: 46 },
