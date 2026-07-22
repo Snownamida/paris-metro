@@ -36,30 +36,56 @@
     return p;
   }
 
-  // 画一个长方体：顶面 + 两个可见侧面（+x 侧、+y 侧），侧面用黑色叠加做明暗。
+  // 画一个长方体：顶面 + 四个侧面（按远近排序，被遮挡的自然画在下面），
+  // 侧面按朝向叠加黑色做明暗。支持 opts.angle：矩形绕自身中心在平面内旋转（度，
+  // 世界坐标系内顺时针为正，用于斜向的走廊/站台）。
   // opts.opacity < 1 时（楼板）呈半透明，让下层内容透出；opts.outline 给顶面描边。
   function prism(g, x, y, w, d, z, h, color, opts) {
     opts = opts || {};
-    const A = px(x, y, z + h), B = px(x + w, y, z + h), C = px(x + w, y + d, z + h), D = px(x, y + d, z + h);
-    const Bb = px(x + w, y, z), Cb = px(x + w, y + d, z), Db = px(x, y + d, z);
-    const sideX = [B, C, Cb, Bb];   // +x 侧
-    const sideY = [C, D, Db, Cb];   // +y 侧
-    const parts = [
-      poly(sideX, color), poly(sideX, "rgba(0,0,0,0.32)"),
-      poly(sideY, color), poly(sideY, "rgba(0,0,0,0.14)"),
-    ];
-    const top = poly([A, B, C, D], color);
-    if (opts.outline) {
-      top.setAttribute("stroke-width", "1");
-      top.style.stroke = cssColor("--text-dim");
-      top.style.strokeOpacity = "0.5";
+    const cx = x + w / 2, cy = y + d / 2;
+    const a = (opts.angle || 0) * Math.PI / 180;
+    const ca = Math.cos(a), sa = Math.sin(a);
+    // 顶面四角（世界坐标，绕中心旋转）
+    const corners = [[x, y], [x + w, y], [x + w, y + d], [x, y + d]].map(function (p) {
+      const dx = p[0] - cx, dy = p[1] - cy;
+      return [cx + dx * ca - dy * sa, cy + dx * sa + dy * ca];
+    });
+    const top = corners.map(function (p) { return px(p[0], p[1], z + h); });
+    const bot = corners.map(function (p) { return px(p[0], p[1], z); });
+
+    // 侧面：远的先画
+    const sides = [];
+    for (let i = 0; i < 4; i++) {
+      const j = (i + 1) % 4;
+      const ex = corners[j][0] - corners[i][0], ey = corners[j][1] - corners[i][1];
+      const len = Math.hypot(ex, ey) || 1;
+      const nx = ey / len, ny = -ex / len; // 外法线
+      const depth = (corners[i][0] + corners[j][0] + corners[i][1] + corners[j][1]) / 2;
+      let shade = 0.05;
+      if (nx > 0.5) shade = 0.32;
+      else if (ny > 0.5) shade = 0.14;
+      else if (nx + ny > 0) shade = 0.22;
+      sides.push({ quad: [top[i], top[j], bot[j], bot[i]], shade: shade, depth: depth });
     }
-    parts.push(top);
+    sides.sort(function (p, q) { return p.depth - q.depth; });
+
+    const parts = [];
+    sides.forEach(function (s) {
+      parts.push(poly(s.quad, color));
+      parts.push(poly(s.quad, "rgba(0,0,0," + s.shade + ")"));
+    });
+    const topPoly = poly(top, color);
+    if (opts.outline) {
+      topPoly.setAttribute("stroke-width", "1");
+      topPoly.style.stroke = cssColor("--text-dim");
+      topPoly.style.strokeOpacity = "0.5";
+    }
+    parts.push(topPoly);
     parts.forEach(function (p) {
       if (opts.opacity != null) p.setAttribute("opacity", opts.opacity);
       g.appendChild(p);
     });
-    return { topCenter: px(x + w / 2, y + d / 2, z + h) };
+    return { topCenter: px(cx, cy, z + h), angle: opts.angle || 0 };
   }
 
   window.renderIso = function (container, model) {
@@ -90,13 +116,22 @@
       // 楼层内容
       (lv.items || []).forEach(function (it) {
         const color = cssColor(it.color || "--text-dim");
-        const info = prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color);
+        const info = prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color, { angle: it.angle });
         track(info.topCenter);
-        // 直接印在顶面上的文字（沿等轴测 x 方向铺在面内）
+        // 直接印在顶面上的文字（沿方块长轴铺在面内，跟随旋转角）
         if (it.topLabel) {
+          let th = ((it.angle || 0) * Math.PI) / 180;
+          // 保证文字从左往右读
+          if ((Math.cos(th) - Math.sin(th)) < 0) th += Math.PI;
+          const ca = Math.cos(th), sa = Math.sin(th);
+          // 文字平面基向量（世界系旋转后投影到屏幕）
+          const m = [
+            (ca - sa) * SX, (ca + sa) * SY,
+            (-sa - ca) * SX, (-sa + ca) * SY,
+          ];
           const t = el("text", {
             x: 0, y: 4.5,
-            transform: "matrix(0.866 0.5 -0.866 0.5 " + info.topCenter[0] + " " + info.topCenter[1] + ")",
+            transform: "matrix(" + m[0].toFixed(4) + " " + m[1].toFixed(4) + " " + m[2].toFixed(4) + " " + m[3].toFixed(4) + " " + info.topCenter[0] + " " + info.topCenter[1] + ")",
             "text-anchor": "middle",
             "font-size": it.topLabelSize || 12.5,
             "font-weight": "700",
@@ -122,7 +157,7 @@
           t.setAttribute("style", "fill:" + cssColor("--text"));
           t.textContent = it.label;
           g.appendChild(t);
-          track([lx + (side === "right" ? 190 : -190), ly]);
+          track([lx + (side === "right" ? 270 : -270), ly]);
         }
       });
 
