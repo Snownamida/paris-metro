@@ -116,7 +116,7 @@
       // 楼层内容
       (lv.items || []).forEach(function (it) {
         const color = cssColor(it.color || "--text-dim");
-        const info = prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color, { angle: it.angle });
+        const info = prism(g, it.x, it.y, it.w, it.d, lv.z, it.h, color, { angle: it.angle, opacity: it.opacity });
         track(info.topCenter);
         // 直接印在顶面上的文字（沿方块长轴铺在面内，跟随旋转角）
         if (it.topLabel) {
