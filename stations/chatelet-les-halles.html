@@ -11,145 +11,277 @@
   <main>
     <h1>Châtelet–Les Halles 车站群</h1>
     <p class="lead">
-      由 Châtelet 地铁站、Les Halles 地铁站和 Châtelet–Les Halles RER 站三部分组成的
-      世界最大地下车站群，日均客流约 75 万人次。三个区域各有站厅，彼此以换乘走廊相连，
-      出入口按 Forum / Rivoli / Seine 三个扇区统一编号 1–19。
+      世界最大地下车站群，日均客流约 75 万人次。按 RATP 官方导向体系分为
+      <strong>Forum、Rivoli、Seine</strong> 三个扇区，出入口统一编号 1–19；
+      其中 Forum 扇区内部又可分为 RER 站与 Les Halles（4 号线）两个站体。
     </p>
 
-    <h2>平面示意</h2>
+    <h2>总览图</h2>
     <div class="panel scroll-x">
-      <svg viewBox="0 0 820 560" style="width: 100%; min-width: 560px; height: auto; font-family: inherit;">
+      <svg viewBox="0 0 940 1160" style="width: 100%; min-width: 620px; height: auto; font-family: inherit;">
         <defs>
-          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--text-dim)" />
           </marker>
+          <!-- 三扇区官方标志：Forum 金色 Canopée 造型 / Rivoli 青铜色建筑列 / Seine 天蓝色波浪 -->
+          <g id="logo-forum">
+            <circle r="15" fill="var(--surface)" stroke="var(--sect-forum)" stroke-width="2" />
+            <path d="M -11 7 Q 0 -13 11 7" fill="none" stroke="var(--sect-forum)" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M -6 7 Q 0 -4 6 7" fill="none" stroke="var(--sect-forum)" stroke-width="2.2" stroke-linecap="round" />
+          </g>
+          <g id="logo-rivoli">
+            <circle r="15" fill="var(--surface)" stroke="var(--sect-rivoli)" stroke-width="2" />
+            <rect x="-11" y="-2" width="6" height="9" fill="var(--sect-rivoli)" />
+            <rect x="-3.5" y="-6" width="7" height="13" fill="var(--sect-rivoli)" />
+            <rect x="5" y="-3" width="6" height="10" fill="var(--sect-rivoli)" />
+          </g>
+          <g id="logo-seine">
+            <circle r="15" fill="var(--surface)" stroke="var(--sect-seine)" stroke-width="2" />
+            <path d="M -10 -2 q 5 -7 10 0 t 10 0" fill="none" stroke="var(--sect-seine)" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M -10 6 q 5 -7 10 0 t 10 0" fill="none" stroke="var(--sect-seine)" stroke-width="2.2" stroke-linecap="round" />
+          </g>
         </defs>
 
-        <!-- 方位与地面参照 -->
-        <text x="790" y="24" text-anchor="end" fill="var(--text-dim)" font-size="13">⬆ 北</text>
-        <text x="30" y="60" fill="var(--text-dim)" font-size="13">jardin Nelson-Mandela / Canopée</text>
-        <rect x="20" y="530" width="780" height="10" fill="var(--rer-b)" opacity="0.35" rx="5" />
-        <text x="30" y="524" fill="var(--text-dim)" font-size="13">塞纳河（quai de Gesvres）</text>
+        <text x="920" y="30" text-anchor="end" fill="var(--text-dim)" font-size="13">⬆ 北</text>
 
-        <!-- 连接线（先画，压在盒子下面） -->
-        <line x1="330" y1="185" x2="510" y2="112" stroke="var(--text-dim)" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#arr)" marker-start="url(#arr)" />
-        <text x="435" y="135" fill="var(--text-dim)" font-size="12.5" text-anchor="middle">换乘通道（极短）</text>
+        <!-- ===== Secteur Forum ===== -->
+        <rect x="30" y="45" width="600" height="350" rx="14" fill="var(--sect-forum)" fill-opacity="0.05" stroke="var(--sect-forum)" stroke-width="2.5" />
+        <use href="#logo-forum" transform="translate(100, 70)" />
+        <text x="128" y="76" font-weight="700" font-size="17" fill="var(--sect-forum)">Secteur Forum</text>
+        <text x="262" y="76" font-size="12.5" fill="var(--text-dim)">Forum des Halles / Canopée 之下</text>
 
-        <line x1="290" y1="240" x2="415" y2="330" stroke="var(--text-dim)" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#arr)" marker-start="url(#arr)" />
-        <text x="278" y="300" fill="var(--text-dim)" font-size="12.5">走廊 150 m+ · 3 条自动步道</text>
+        <!-- 地面连通：patio Pina Bausch -->
+        <path d="M 60 240 H 46 V 30" fill="none" stroke="var(--text-dim)" stroke-width="2" marker-end="url(#arr2)" />
+        <text x="40" y="22" font-size="12.5" fill="var(--text-dim)">patio Pina Bausch 露天中庭直通地面（jardin Nelson-Mandela / Canopée）</text>
 
-        <line x1="450" y1="415" x2="450" y2="455" stroke="var(--text-dim)" stroke-width="3" stroke-dasharray="7 5" marker-end="url(#arr)" marker-start="url(#arr)" />
-        <text x="462" y="440" fill="var(--text-dim)" font-size="12.5">走廊 132 m · 2 条自动步道</text>
-
-        <line x1="185" y1="130" x2="185" y2="78" stroke="var(--text-dim)" stroke-width="3" marker-end="url(#arr)" />
-        <text x="196" y="100" fill="var(--text-dim)" font-size="12.5">patio Pina Bausch 直通地面</text>
-
-        <!-- RER 站 -->
+        <!-- 商场 -->
         <g>
-          <rect x="60" y="130" width="270" height="115" rx="12" fill="var(--surface)" stroke="var(--rer-a)" stroke-width="2.5" />
-          <text x="78" y="158" font-weight="700" font-size="16" fill="var(--text)">Châtelet–Les Halles（RER）</text>
-          <text x="78" y="180" font-size="12.5" fill="var(--text-dim)">salle d'échanges + 7 轨 4 岛式站台（同层）</text>
+          <rect x="86" y="90" width="244" height="98" rx="12" fill="var(--surface)" stroke="var(--text-dim)" stroke-width="1.8" stroke-dasharray="7 5" />
+          <text x="100" y="116" font-weight="700" font-size="14" fill="var(--text)">Westfield Forum des Halles</text>
+          <text x="100" y="136" font-size="12" fill="var(--text-dim)">商场，-1 ~ -3 层</text>
+          <text x="100" y="154" font-size="12" fill="var(--text-dim)">UGC 电影院 · 游泳池（-3）</text>
+          <text x="100" y="172" font-size="12" fill="var(--text-dim)">Forum des Images 等</text>
+        </g>
+        <rect x="138" y="188" width="24" height="22" rx="8" fill="var(--text-dim)" fill-opacity="0.1" stroke="var(--text-dim)" stroke-width="1.8" stroke-dasharray="7 5" />
+        <text x="170" y="204" font-size="12.5" fill="var(--text-dim)">各 Porte 楼扶梯直通商场层</text>
+
+        <!-- Les Halles（地铁 4） -->
+        <g>
+          <rect x="340" y="90" width="260" height="90" rx="12" fill="var(--surface)" stroke="var(--m4)" stroke-width="2" />
+          <text x="356" y="118" font-weight="700" font-size="15" fill="var(--text)">Les Halles（地铁）</text>
+          <circle cx="372" cy="150" r="13" fill="var(--m4)" />
+          <text x="372" y="155" text-anchor="middle" font-weight="700" font-size="14" fill="#fff">4</text>
+          <text x="394" y="155" font-size="12.5" fill="var(--text-dim)">rue Rambuteau 之下 · 两个半站</text>
+        </g>
+
+        <!-- 极短换乘通道 -->
+        <rect x="408" y="180" width="24" height="30" rx="8" fill="var(--text-dim)" fill-opacity="0.1" stroke="var(--text-dim)" stroke-width="1.8" stroke-dasharray="7 5" />
+        <text x="440" y="201" font-size="12.5" fill="var(--text-dim)">极短（1977 年为此东移重建）</text>
+
+        <!-- RER 站体 -->
+        <g>
+          <rect x="60" y="210" width="330" height="160" rx="12" fill="var(--surface)" stroke="var(--rer-a)" stroke-width="2" />
+          <text x="76" y="238" font-weight="700" font-size="15" fill="var(--text)">Châtelet–Les Halles（RER）</text>
+          <text x="76" y="258" font-size="12.5" fill="var(--text-dim)">salle d'échanges 换乘大厅</text>
+          <g font-weight="700" font-size="13">
+            <rect x="76" y="270" width="26" height="26" rx="6" fill="var(--rer-a)" /><text x="89" y="288" text-anchor="middle" fill="#fff">A</text>
+            <rect x="110" y="270" width="26" height="26" rx="6" fill="var(--rer-b)" /><text x="123" y="288" text-anchor="middle" fill="#fff">B</text>
+            <rect x="144" y="270" width="26" height="26" rx="6" fill="var(--rer-d)" /><text x="157" y="288" text-anchor="middle" fill="#fff">D</text>
+          </g>
+          <text x="76" y="326" font-size="12.5" fill="var(--text-dim)">下一层站台：7 轨 4 台同层（D 居中，A/B 两侧）</text>
+          <text x="76" y="346" font-size="12.5" fill="var(--text-dim)">站体长 315 m · 宽 63 m</text>
+        </g>
+
+        <!-- 走廊：换乘大厅 ↔ 北组团（150 m+） -->
+        <rect x="215" y="395" width="24" height="250" rx="8" fill="var(--text-dim)" fill-opacity="0.1" stroke="var(--text-dim)" stroke-width="1.8" stroke-dasharray="7 5" />
+        <text x="252" y="505" font-size="12.5" fill="var(--text-dim)">换乘走廊 150 m 以上</text>
+        <text x="252" y="525" font-size="12.5" fill="var(--text-dim)">3 条平行自动步道</text>
+
+        <!-- ===== Secteur Rivoli ===== -->
+        <g>
+          <rect x="60" y="645" width="430" height="135" rx="14" fill="var(--sect-rivoli)" fill-opacity="0.06" stroke="var(--sect-rivoli)" stroke-width="2.5" />
+          <use href="#logo-rivoli" transform="translate(94, 669)" />
+          <text x="120" y="675" font-weight="700" font-size="17" fill="var(--text)">Secteur Rivoli · Châtelet 北组团</text>
+          <text x="120" y="697" font-size="12.5" fill="var(--text-dim)">rue de Rivoli / rue des Halles 之下</text>
           <g font-weight="700" font-size="14">
-            <rect x="78" y="196" width="26" height="26" rx="6" fill="var(--rer-a)" /><text x="91" y="215" text-anchor="middle" fill="#fff">A</text>
-            <rect x="112" y="196" width="26" height="26" rx="6" fill="var(--rer-b)" /><text x="125" y="215" text-anchor="middle" fill="#1c1c1e">B</text>
-            <rect x="146" y="196" width="26" height="26" rx="6" fill="var(--rer-d)" /><text x="159" y="215" text-anchor="middle" fill="#fff">D</text>
+            <circle cx="92" cy="725" r="13" fill="var(--m1)" /><text x="92" y="730" text-anchor="middle" fill="#1c1c1e">1</text>
+            <circle cx="126" cy="725" r="13" fill="var(--m4)" /><text x="126" y="730" text-anchor="middle" fill="#fff">4</text>
+            <circle cx="160" cy="725" r="13" fill="var(--m14)" /><text x="160" y="730" text-anchor="middle" fill="#fff">14</text>
+          </g>
+          <text x="76" y="762" font-size="12.5" fill="var(--text-dim)">1 在 Rivoli 街下，4 在 rue des Halles 下，14 斜穿两街之间、深度低于 1</text>
+        </g>
+
+        <!-- 走廊：北组团 ↔ 南组团（132 m） -->
+        <rect x="240" y="780" width="24" height="220" rx="8" fill="var(--text-dim)" fill-opacity="0.1" stroke="var(--text-dim)" stroke-width="1.8" stroke-dasharray="7 5" />
+        <text x="277" y="880" font-size="12.5" fill="var(--text-dim)">换乘走廊 132 m</text>
+        <text x="277" y="900" font-size="12.5" fill="var(--text-dim)">2 条自动步道（1964 年启用）</text>
+
+        <!-- ===== Secteur Seine ===== -->
+        <g>
+          <rect x="60" y="1000" width="430" height="115" rx="14" fill="var(--sect-seine)" fill-opacity="0.07" stroke="var(--sect-seine)" stroke-width="2.5" />
+          <use href="#logo-seine" transform="translate(94, 1024)" />
+          <text x="120" y="1030" font-weight="700" font-size="17" fill="var(--text)">Secteur Seine · Châtelet 南组团</text>
+          <text x="120" y="1052" font-size="12.5" fill="var(--text-dim)">place du Châtelet 一侧</text>
+          <g font-weight="700" font-size="14">
+            <circle cx="92" cy="1085" r="13" fill="var(--m7)" /><text x="92" y="1090" text-anchor="middle" fill="#1c1c1e">7</text>
+            <circle cx="126" cy="1085" r="13" fill="var(--m11)" /><text x="126" y="1090" text-anchor="middle" fill="#fff">11</text>
+          </g>
+          <text x="160" y="1078" font-size="12.5" fill="var(--text-dim)">7：quai de Gesvres（塞纳河岸）之下</text>
+          <text x="160" y="1098" font-size="12.5" fill="var(--text-dim)">11：avenue Victoria 之下</text>
+        </g>
+
+        <!-- 塞纳河 -->
+        <rect x="30" y="1132" width="580" height="12" rx="6" fill="var(--rer-b)" opacity="0.35" />
+        <text x="46" y="1126" fill="var(--text-dim)" font-size="13">塞纳河</text>
+
+        <!-- 最不利路径 -->
+        <path d="M 60 1057 H 40 V 290 H 60" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-dasharray="3 5" />
+        <text x="30" y="672" font-size="12" fill="var(--text-dim)" text-anchor="middle" transform="rotate(-90 30 672)">最不利换乘（7 / 11 ↔ RER）步行约 800 m</text>
+
+        <!-- ===== 出入口列 ===== -->
+        <!-- Forum 1–9 -->
+        <line x1="630" y1="220" x2="646" y2="220" stroke="var(--sect-forum)" stroke-width="1.8" stroke-dasharray="4 4" />
+        <g>
+          <rect x="646" y="55" width="280" height="345" rx="12" fill="none" stroke="var(--sect-forum)" stroke-width="1.8" stroke-dasharray="7 5" />
+          <text x="662" y="86" font-weight="700" font-size="14" fill="var(--sect-forum)">Forum 扇区出口 1–9</text>
+          <g font-size="12.5" fill="var(--text-dim)">
+            <g font-weight="700" font-size="11" fill="#1c1c1e">
+              <rect x="662" y="101" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="115" text-anchor="middle">1</text>
+              <rect x="662" y="129" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="143" text-anchor="middle">2</text>
+              <rect x="662" y="157" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="171" text-anchor="middle">3</text>
+              <rect x="662" y="185" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="199" text-anchor="middle">4</text>
+              <rect x="662" y="213" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="227" text-anchor="middle">5</text>
+              <rect x="662" y="241" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="255" text-anchor="middle">6</text>
+              <rect x="662" y="269" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="283" text-anchor="middle">7</text>
+              <rect x="662" y="297" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="311" text-anchor="middle">8</text>
+              <rect x="662" y="325" width="20" height="20" rx="5" fill="var(--sect-forum)" /><text x="672" y="339" text-anchor="middle">9</text>
+            </g>
+            <text x="692" y="116">Porte Marguerite de Navarre</text>
+            <text x="692" y="144">Porte Berger</text>
+            <text x="692" y="172">Porte Lescot（Canopée）</text>
+            <text x="692" y="200">Porte Rambuteau</text>
+            <text x="692" y="228">Porte Saint-Eustache</text>
+            <text x="692" y="256">Porte du Pont Neuf</text>
+            <text x="692" y="284">Porte du Jour</text>
+            <text x="692" y="312">Porte du Louvre</text>
+            <text x="692" y="340">Rue Montorgueil</text>
+            <text x="662" y="368">1 号口唯一街面直达换乘大厅（设电梯）；</text>
+            <text x="662" y="386">1–6 号均可达换乘大厅</text>
           </g>
         </g>
 
-        <!-- Les Halles 地铁站 -->
+        <!-- Rivoli 10–14 -->
+        <line x1="490" y1="712" x2="646" y2="712" stroke="var(--sect-rivoli)" stroke-width="1.8" stroke-dasharray="4 4" />
         <g>
-          <rect x="500" y="60" width="240" height="95" rx="12" fill="var(--surface)" stroke="var(--m4)" stroke-width="2.5" />
-          <text x="518" y="88" font-weight="700" font-size="16" fill="var(--text)">Les Halles（地铁）</text>
-          <text x="518" y="110" font-size="12.5" fill="var(--text-dim)">rue Rambuteau 之下 · 两个半站</text>
-          <circle cx="532" cy="132" r="13" fill="var(--m4)" /><text x="532" y="137" text-anchor="middle" font-weight="700" font-size="14" fill="#fff">4</text>
-        </g>
-
-        <!-- Châtelet 北组团 -->
-        <g>
-          <rect x="340" y="330" width="290" height="85" rx="12" fill="var(--surface)" stroke="var(--m1)" stroke-width="2.5" />
-          <text x="358" y="358" font-weight="700" font-size="16" fill="var(--text)">Châtelet 北组团</text>
-          <text x="358" y="378" font-size="12.5" fill="var(--text-dim)">rue de Rivoli / rue des Halles 之下</text>
-          <g font-weight="700" font-size="14">
-            <circle cx="371" cy="398" r="13" fill="var(--m1)" /><text x="371" y="403" text-anchor="middle" fill="#1c1c1e">1</text>
-            <circle cx="405" cy="398" r="13" fill="var(--m4)" /><text x="405" y="403" text-anchor="middle" fill="#fff">4</text>
-            <circle cx="439" cy="398" r="13" fill="var(--m14)" /><text x="439" y="403" text-anchor="middle" fill="#fff">14</text>
+          <rect x="646" y="615" width="280" height="195" rx="12" fill="none" stroke="var(--sect-rivoli)" stroke-width="1.8" stroke-dasharray="7 5" />
+          <text x="662" y="646" font-weight="700" font-size="14" fill="var(--text)">Rivoli 扇区出口 10–14</text>
+          <g font-size="12.5" fill="var(--text-dim)">
+            <g font-weight="700" font-size="11" fill="#fff">
+              <rect x="662" y="661" width="20" height="20" rx="5" fill="var(--sect-rivoli)" /><text x="672" y="675" text-anchor="middle">10</text>
+              <rect x="662" y="689" width="20" height="20" rx="5" fill="var(--sect-rivoli)" /><text x="672" y="703" text-anchor="middle">11</text>
+              <rect x="662" y="717" width="20" height="20" rx="5" fill="var(--sect-rivoli)" /><text x="672" y="731" text-anchor="middle">12</text>
+              <rect x="662" y="745" width="20" height="20" rx="5" fill="var(--sect-rivoli)" /><text x="672" y="759" text-anchor="middle">13</text>
+              <rect x="662" y="773" width="20" height="20" rx="5" fill="var(--sect-rivoli)" /><text x="672" y="787" text-anchor="middle">14</text>
+            </g>
+            <text x="692" y="676">Place Sainte-Opportune</text>
+            <text x="692" y="704">Rue de Rivoli</text>
+            <text x="692" y="732">Rue Bertin-Poirée</text>
+            <text x="692" y="760">Rue des Lavandières</text>
+            <text x="692" y="788">Rue Saint-Denis</text>
           </g>
         </g>
 
-        <!-- Châtelet 南组团 -->
+        <!-- Seine 15–19 -->
+        <line x1="490" y1="1057" x2="646" y2="1057" stroke="var(--sect-seine)" stroke-width="1.8" stroke-dasharray="4 4" />
         <g>
-          <rect x="340" y="455" width="290" height="60" rx="12" fill="var(--surface)" stroke="var(--m7)" stroke-width="2.5" />
-          <text x="358" y="480" font-weight="700" font-size="16" fill="var(--text)">Châtelet 南组团</text>
-          <text x="500" y="480" font-size="12.5" fill="var(--text-dim)">place du Châtelet 一侧</text>
-          <g font-weight="700" font-size="14">
-            <circle cx="371" cy="498" r="13" fill="var(--m7)" /><text x="371" y="503" text-anchor="middle" fill="#1c1c1e">7</text>
-            <circle cx="405" cy="498" r="13" fill="var(--m11)" /><text x="405" y="503" text-anchor="middle" fill="#fff">11</text>
+          <rect x="646" y="960" width="280" height="195" rx="12" fill="none" stroke="var(--sect-seine)" stroke-width="1.8" stroke-dasharray="7 5" />
+          <text x="662" y="991" font-weight="700" font-size="14" fill="var(--text)">Seine 扇区出口 15–19</text>
+          <g font-size="12.5" fill="var(--text-dim)">
+            <g font-weight="700" font-size="11" fill="#1c1c1e">
+              <rect x="662" y="1006" width="20" height="20" rx="5" fill="var(--sect-seine)" /><text x="672" y="1020" text-anchor="middle">15</text>
+              <rect x="662" y="1034" width="20" height="20" rx="5" fill="var(--sect-seine)" /><text x="672" y="1048" text-anchor="middle">16</text>
+              <rect x="662" y="1062" width="20" height="20" rx="5" fill="var(--sect-seine)" /><text x="672" y="1076" text-anchor="middle">17</text>
+              <rect x="662" y="1090" width="20" height="20" rx="5" fill="var(--sect-seine)" /><text x="672" y="1104" text-anchor="middle">18</text>
+              <rect x="662" y="1118" width="20" height="20" rx="5" fill="var(--sect-seine)" /><text x="672" y="1132" text-anchor="middle">19</text>
+            </g>
+            <text x="692" y="1021">Théâtre du Châtelet</text>
+            <text x="692" y="1049">Place du Châtelet</text>
+            <text x="692" y="1077">Théâtre de la Ville</text>
+            <text x="692" y="1105">Avenue Victoria</text>
+            <text x="692" y="1133">Rue Saint-Martin</text>
           </g>
         </g>
       </svg>
     </div>
+    <p class="note" style="margin-top: 0.6rem;">
+      两条换乘走廊的长度按 132 m : 150 m 真实比例绘制，「极短」通道按远小于两者示意；
+      各站体框的大小不代表实际尺寸。
+    </p>
 
-    <h2>三个区域</h2>
+    <h2>三个扇区</h2>
     <div class="zone-grid">
-      <section class="panel zone" style="border-top-color: var(--m1);">
-        <h3>Châtelet 地铁站</h3>
-        <p class="zone-sub">站群南部，与 République 并列为全网仅有的两座五线地铁站</p>
+      <section class="panel zone" style="border-top-color: var(--sect-forum);">
+        <h3><svg class="sect-logo" viewBox="-20 -20 40 40" aria-hidden="true"><circle r="15" fill="none" stroke="var(--sect-forum)" stroke-width="2"/><path d="M -11 7 Q 0 -13 11 7" fill="none" stroke="var(--sect-forum)" stroke-width="2.2" stroke-linecap="round"/><path d="M -6 7 Q 0 -4 6 7" fill="none" stroke="var(--sect-forum)" stroke-width="2.2" stroke-linecap="round"/></svg>Secteur Forum（出口 1–9）</h3>
+        <p class="zone-sub">导向标识：金色，图案取自 Canopée 天棚造型 · Forum des Halles 之下，内部分为两个站体</p>
         <div class="line-wrap">
-          <span data-line="1"></span><span data-line="4"></span>
+          <span data-line="4"></span><span data-line="A"></span>
+          <span data-line="B"></span><span data-line="D"></span>
+        </div>
+        <ul>
+          <li><strong>RER 站体</strong>：salle d'échanges 换乘大厅（2017 年翻新），
+            其下一层为 7 轨 4 座岛式站台，全部同层——中间两台专供 RER D，
+            东西两侧 A/B 共用、同方向可同台换乘；站体长 315 m、宽 63 m</li>
+          <li><strong>Les Halles 站体（4 号线）</strong>：rue Rambuteau 之下；
+            1977 年配合 RER 站建设东移数十米重建，因此与换乘大厅距离极短；
+            承重墙分成两个「半站」，2020 年起装屏蔽门</li>
+          <li>Canopée 的 patio Pina Bausch 与换乘大厅同层连续，可经露天中庭直达地面</li>
+          <li><strong>与商场连成一体</strong>：经各 Porte 楼扶梯直通 Westfield Forum des Halles
+            （-1 ~ -3 层），不出地面可达 UGC Ciné Cité 电影院、Suzanne-Berlioux 游泳池
+            （-3 层，50 m 泳池）、Forum des Images；Canopée 内另有媒体图书馆、
+            嘻哈文化中心 La Place 与市立音乐学院</li>
+        </ul>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--sect-rivoli);">
+        <h3><svg class="sect-logo" viewBox="-20 -20 40 40" aria-hidden="true"><circle r="15" fill="none" stroke="var(--sect-rivoli)" stroke-width="2"/><rect x="-11" y="-2" width="6" height="9" fill="var(--sect-rivoli)"/><rect x="-3.5" y="-6" width="7" height="13" fill="var(--sect-rivoli)"/><rect x="5" y="-3" width="6" height="10" fill="var(--sect-rivoli)"/></svg>Secteur Rivoli（出口 10–14）</h3>
+        <p class="zone-sub">导向标识：青铜色，图案为里沃利街的建筑立面列 · Châtelet 北组团</p>
+        <div class="line-wrap">
+          <span data-line="1"></span><span data-line="4"></span><span data-line="14"></span>
+        </div>
+        <ul>
+          <li>1 号线在 rue de Rivoli 之下（1900 年启用，全站群最老）</li>
+          <li>4 号线在 rue des Halles 之下——注意 4 号线在本站群停靠两次
+            （此处与 Les Halles 各一站）</li>
+          <li>14 号线斜穿两街之间，深度低于 1 号线</li>
+        </ul>
+      </section>
+
+      <section class="panel zone" style="border-top-color: var(--sect-seine);">
+        <h3><svg class="sect-logo" viewBox="-20 -20 40 40" aria-hidden="true"><circle r="15" fill="none" stroke="var(--sect-seine)" stroke-width="2"/><path d="M -10 -2 q 5 -7 10 0 t 10 0" fill="none" stroke="var(--sect-seine)" stroke-width="2.2" stroke-linecap="round"/><path d="M -10 6 q 5 -7 10 0 t 10 0" fill="none" stroke="var(--sect-seine)" stroke-width="2.2" stroke-linecap="round"/></svg>Secteur Seine（出口 15–19）</h3>
+        <p class="zone-sub">导向标识：天蓝色，图案为塞纳河波浪 · Châtelet 南组团，place du Châtelet 一侧</p>
+        <div class="line-wrap">
           <span data-line="7"></span><span data-line="11"></span>
-          <span data-line="14"></span>
         </div>
         <ul>
-          <li><strong>北组团</strong>（rue de Rivoli 一侧）：
-            1 号线（rue de Rivoli 之下）、4 号线（rue des Halles 之下）、
-            14 号线（斜穿两街之间，深度低于 1 号线）</li>
-          <li><strong>南组团</strong>（place du Châtelet 一侧）：
-            7 号线（塞纳河岸 quai de Gesvres 之下）、11 号线（avenue Victoria 之下）</li>
-        </ul>
-      </section>
-
-      <section class="panel zone" style="border-top-color: var(--m4);">
-        <h3>Les Halles 地铁站</h3>
-        <p class="zone-sub">站群北部，rue Rambuteau 之下</p>
-        <div class="line-wrap"><span data-line="4"></span></div>
-        <ul>
-          <li>仅 4 号线停靠；1977 年配合 RER 站建设向东平移数十米重建，
-            因此与 RER 换乘大厅距离极短</li>
-          <li>结构特殊：一道带大开口的承重墙将车站分成两个「半站」，
-            各含一轨一侧式站台</li>
-          <li>2020 年起装有屏蔽门（配合 4 号线自动化）</li>
-        </ul>
-      </section>
-
-      <section class="panel zone" style="border-top-color: var(--rer-a);">
-        <h3>Châtelet–Les Halles RER 站</h3>
-        <p class="zone-sub">Forum des Halles 之下，1977 年启用（RER D 于 1987 年接入）</p>
-        <div class="line-wrap">
-          <span data-line="A"></span><span data-line="B"></span><span data-line="D"></span>
-        </div>
-        <ul>
-          <li>7 条轨道、4 座岛式站台，<strong>全部位于同一层</strong></li>
-          <li>中间两座站台专供 RER D；东西两侧站台由 RER A 与 B 共用，
-            同方向 A/B 可同台换乘</li>
-          <li>站体长 315 m、宽 63 m，总面积约 6 万 m²</li>
-          <li>站台之上为 salle d'échanges（换乘大厅），2017 年完成翻新</li>
+          <li>7 号线在塞纳河岸 quai de Gesvres 之下（1926 年启用）</li>
+          <li>11 号线在 avenue Victoria 之下（1935 年启用）</li>
+          <li>是整个站群中离 RER 最远的部分（最不利路径约 800 m）</li>
         </ul>
       </section>
     </div>
 
-    <h2>区域之间的连接</h2>
+    <h2>扇区之间的连接</h2>
     <section class="panel">
       <ul class="connections">
-        <li><strong>Châtelet 南组团 ↔ 北组团</strong>：132 m 长走廊，
-          配两条自动步道（tapis roulants），1964 年启用。</li>
-        <li><strong>Châtelet 北组团 ↔ RER 换乘大厅</strong>：150 m 以上的换乘走廊，
-          配三条平行自动步道；2017 年改造中南端缩短并加装玻璃护栏。
-          最不利路径（7 号线 ↔ RER）步行距离可达约 800 m。</li>
-        <li><strong>Les Halles（4 号线）↔ RER 换乘大厅</strong>：因 1977 年平移重建，
+        <li><strong>Forum 内部：Les Halles（4 号线）↔ 换乘大厅</strong>：
           经楼扶梯直接接入，距离极短——是 4 号线换乘 RER 的最快路径。</li>
-        <li><strong>换乘大厅 ↔ Forum des Halles / 地面</strong>：经 Porte Lescot、
-          Porte Rambuteau、Porte Berger 等楼扶梯通往商场 -3 层；
-          Canopée 的 patio Pina Bausch 与换乘大厅同层连续，可经露天中庭直达地面。</li>
+        <li><strong>Forum ↔ Rivoli</strong>：150 m 以上的换乘走廊，配三条平行自动步道
+          （tapis roulants）；2017 年改造中南端缩短并加装玻璃护栏。</li>
+        <li><strong>Rivoli ↔ Seine</strong>：132 m 长走廊，配两条自动步道，1964 年启用。</li>
+        <li><strong>换乘大厅 ↔ Forum des Halles 商场 / 地面</strong>：经 Porte Lescot、
+          Porte Rambuteau、Porte Berger 等楼扶梯通往商场 -3 层，商场内的电影院、
+          游泳池、Forum des Images 等设施均可不出地面到达；
+          patio Pina Bausch 与换乘大厅同层连续，直通地面花园。</li>
       </ul>
     </section>
 
@@ -187,52 +319,11 @@
       </div>
     </section>
 
-    <h2>出入口（统一编号 1–19，按三扇区）</h2>
-    <div class="zone-grid">
-      <section class="panel zone" style="border-top-color: var(--m4);">
-        <h3>Secteur Forum（1–9 号口）</h3>
-        <p class="zone-sub">服务 Les Halles 地铁站与 RER 站；1–6 号可直达换乘大厅</p>
-        <ol class="exit-list">
-          <li value="1">Porte Marguerite de Navarre（设电梯）</li>
-          <li value="2">Forum – Porte Berger</li>
-          <li value="3">Forum – Porte Lescot（经 passage de la Canopée）</li>
-          <li value="4">Forum – Porte Rambuteau</li>
-          <li value="5">Forum – Porte Saint-Eustache（place René Cassin）</li>
-          <li value="6">Forum – Porte du Pont Neuf</li>
-          <li value="7">Forum – Porte du Jour</li>
-          <li value="8">Forum – Porte du Louvre</li>
-          <li value="9">Rue Montorgueil</li>
-        </ol>
-      </section>
-
-      <section class="panel zone" style="border-top-color: var(--m1);">
-        <h3>Secteur Rivoli（10–14 号口）</h3>
-        <p class="zone-sub">服务 Châtelet 北组团（1、4、14 号线）</p>
-        <ol class="exit-list">
-          <li value="10">Place Sainte-Opportune</li>
-          <li value="11">Rue de Rivoli</li>
-          <li value="12">Rue Bertin-Poirée</li>
-          <li value="13">Rue des Lavandières</li>
-          <li value="14">Rue Saint-Denis</li>
-        </ol>
-      </section>
-
-      <section class="panel zone" style="border-top-color: var(--m7);">
-        <h3>Secteur Seine（15–19 号口）</h3>
-        <p class="zone-sub">服务 Châtelet 南组团（7、11 号线）</p>
-        <ol class="exit-list">
-          <li value="15">Théâtre du Châtelet</li>
-          <li value="16">Place du Châtelet</li>
-          <li value="17">Théâtre de la Ville</li>
-          <li value="18">Avenue Victoria</li>
-          <li value="19">Rue Saint-Martin</li>
-        </ol>
-      </section>
-    </div>
-
     <p class="note">
-      2013–2017 年大改造后启用现行三扇区导向与统一编号：Canopée（2016 年启用）使 Porte Lescot
+      现行三扇区导向与统一编号来自 2013–2017 年大改造：Canopée（2016 年启用）使 Porte Lescot
       直通 jardin Nelson-Mandela；Porte Marguerite de Navarre 新出入口 2017 年启用。
+      三扇区的官方色与图形（Forum 金色·Canopée 造型，Rivoli 青铜色·建筑立面列，
+      Seine 天蓝色·波浪）亦见于站内陶瓷饰带，本页 logo 为按此描述的示意重绘。
       资料主要来自法语维基百科相关条目与 RATP 官方出入口平面图，核实于 2026 年 7 月。
     </p>
   </main>
