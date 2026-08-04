@@ -55,7 +55,7 @@ _headers                     /assets/* 缓存 5 分钟
 ## 5. 当前进度（2026-08-04）
 
 - 三页 + 首页导航已上线，CF Pages 部署正常（生产域 paris-metro.snownamida.top，custom domain 的 Browser Cache TTL 被 zone 覆盖为 4h，靠 ?v=N 兜底）。
-- 里昂站页已完成：平面示意图（拓扑修正版）、iso.js 等轴测五层剖视图（含 L 形 Galerie des Fresques、带拐臂的 Hall 3）、-2 层换乘大厅 1:1 实测图（97 点轮廓 + 11 组闸机线 + 付费区 + 官方图结构：两条 RER 梯带、中央服务排、东侧商铺排、公交站区、方向连接）。
+- 里昂站页已完成：平面示意图（拓扑修正版）、iso.js 等轴测五层剖视图（含 L 形 Galerie des Fresques、带拐臂的 Hall 3）、-2 层换乘大厅 1:1 实测图（97 点轮廓 + 20 组闸机线（Overpass barrier=turnstile 实测，经仿射变换映射，平行/垂直/±25° 三族角度）+ 付费区 + 官方图结构：两条 RER 梯带、中央服务排、东侧商铺排、公交站区、方向连接）。
 - 最近一轮非网站任务：分析了 Compagnon Train APK（RATP 报站 app）——结论：无任何后台机制（无自有 Service、无前台服务、无后台定位权限，扫描绑定 MainActivity onPause/onResume），后台不报站是设计使然，无解。
 
 ## 6. 待办与待确认（等用户决定）
