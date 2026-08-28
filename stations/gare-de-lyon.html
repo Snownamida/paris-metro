@@ -202,19 +202,14 @@
       <svg viewBox="0 0 1480 620" style="width: 100%; min-width: 1050px; height: auto; font-family: inherit;">
   <text x="24" y="24" font-size="13" style="fill:var(--text-dim)">按 SNCF 官方 -2 层信息图布局重绘（轮廓/闸机线为 OSM 实测 1:1，RER 站台/商铺/方向按官方图方位）· 左＝西北 · 右＝东南 · 上＝北 · 下＝南（rue de Bercy 侧）</text>
   <path d="M 362.5 114.7 L 363.1 115.1 L 364.2 115.4 L 370.7 115.3 L 501.6 117.5 L 503.1 115.8 L 503.8 105.5 L 503.6 101.3 L 503.5 99.2 L 514.3 99.5 L 552.8 100.1 L 560.8 100.0 L 560.8 118.4 L 844.2 122.9 L 844.6 107.2 L 865.2 87.2 L 865.7 54.2 L 923.1 55.2 L 922.3 88.1 L 942.1 108.9 L 941.5 122.7 L 943.5 124.7 L 995.4 125.6 L 1068.1 126.4 L 1068.1 115.5 L 1156.6 104.9 L 1161.0 127.8 L 1202.9 129.1 L 1203.0 145.9 L 1203.1 152.1 L 1204.9 152.2 L 1204.7 164.2 L 1202.8 164.2 L 1202.0 214.4 L 1198.6 214.4 L 1198.5 217.1 L 1203.6 217.1 L 1203.4 229.1 L 1202.6 301.5 L 1114.6 302.2 L 1050.6 302.7 L 1050.3 307.1 L 1027.8 306.8 L 1028.0 314.0 L 1011.6 313.9 L 1011.4 318.9 L 1002.9 318.9 L 990.0 313.1 L 673.9 305.7 L 672.4 318.0 L 661.8 404.8 L 626.7 402.2 L 598.1 400.1 L 613.0 304.8 L 490.2 305.1 L 477.0 304.9 L 453.3 305.0 L 378.4 303.9 L 353.0 299.9 L 336.2 297.3 L 293.4 290.6 L 293.7 283.3 L 295.7 278.9 L 296.0 278.0 L 295.6 277.2 L 294.8 276.5 L 293.6 276.3 L 292.7 276.2 L 292.7 277.3 L 187.2 263.4 L 186.4 273.9 L 174.9 271.6 L 169.9 270.8 L 165.9 269.9 L 110.8 254.6 L 75.7 244.7 L 60.2 240.4 L 21.7 228.6 L 32.6 187.9 L 142.2 199.8 L 166.5 155.7 L 190.1 157.3 L 191.5 112.5 L 262.7 113.6 L 286.6 114.1 L 319.2 114.7 L 320.2 114.4 L 320.8 114.1 L 321.4 113.2 L 321.6 112.6 L 321.8 95.5 L 326.9 95.5 L 357.3 95.9 L 362.2 95.9 L 362.0 113.1 L 362.1 113.8 L 362.5 114.7 Z" fill-opacity="0.20" stroke-width="2.5" style="fill:var(--surface);stroke:var(--accent)" />
-  <!-- RER D（-3）两条岛式站台带 -->
-  <rect x="290" y="138" width="700" height="28" rx="14" fill-opacity="0.28" stroke-width="1.5" style="fill:var(--rer-d);stroke:var(--rer-d)" />
-  <rect x="290" y="202" width="700" height="28" rx="14" fill-opacity="0.28" stroke-width="1.5" style="fill:var(--rer-d);stroke:var(--rer-d)" />
-  <ellipse cx="445" cy="184" rx="150" ry="62" fill-opacity="0.10" style="fill:var(--rer-d)" />
-  <circle cx="1010" cy="152" r="11" style="fill:var(--rer-d)" /><text x="1010" y="156" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">D</text>
-  <circle cx="1010" cy="216" r="11" style="fill:var(--rer-d)" /><text x="1010" y="220" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">D</text>
-  <text x="700" y="152" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--rer-d)">Voies 1 et 3 / RER D（-3）</text>
-  <text x="700" y="216" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--rer-d)">Voies 2 et 4 / RER D（-3）</text>
-  <!-- RER A（-4）岛式站台，官方北端大椭圆 → 横向放上缘 -->
-  <rect x="430" y="88" width="380" height="16" rx="8" fill-opacity="0.30" stroke-width="1.2" style="fill:var(--rer-a);stroke:var(--rer-a)" />
-  <rect x="430" y="110" width="380" height="16" rx="8" fill-opacity="0.30" stroke-width="1.2" style="fill:var(--rer-a);stroke:var(--rer-a)" />
-  <circle cx="1220" cy="107" r="11" style="fill:var(--rer-a)" /><text x="1220" y="111" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">A</text>
-  <text x="620" y="80" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--rer-a)">RER A 岛式站台（-4）</text>
+  <!-- RER 站台（官方东侧竖井并排下探：RER D -3 与 RER A -4 相邻）→ 横向画成中带相邻两条站台 -->
+  <rect x="290" y="132" width="700" height="34" rx="17" fill-opacity="0.30" stroke-width="1.6" style="fill:var(--rer-d);stroke:var(--rer-d)" />
+  <rect x="290" y="170" width="700" height="34" rx="17" fill-opacity="0.30" stroke-width="1.6" style="fill:var(--rer-a);stroke:var(--rer-a)" />
+  <ellipse cx="445" cy="168" rx="140" ry="58" fill-opacity="0.08" style="fill:var(--rer-d)" />
+  <circle cx="1010" cy="149" r="11" style="fill:var(--rer-d)" /><text x="1010" y="153" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">D</text>
+  <circle cx="1010" cy="187" r="11" style="fill:var(--rer-a)" /><text x="1010" y="191" text-anchor="middle" font-weight="700" font-size="11" fill="#fff">A</text>
+  <text x="700" y="133" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--rer-d)">RER D（-3）</text>
+  <text x="700" y="191" text-anchor="middle" font-size="11" font-weight="700" style="fill:var(--rer-a)">RER A（-4）</text>
   <!-- Grandes Lignes 上行梯组（官方西侧一列 → 横向左缘，蓝色虚线描边） -->
   <g stroke-width="1.8" fill-opacity="0.10" style="stroke:var(--accent);fill:var(--accent)">
     <path d="M 62 268 L 112 268 L 97 280 L 112 292 L 62 292 Z"/>
@@ -263,12 +258,11 @@
   <line x1="939.3" y1="158.1" x2="921.5" y2="149.3" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
   <line x1="974.9" y1="161.6" x2="951.3" y2="161.3" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
   <line x1="366.2" y1="235.6" x2="351.8" y2="243.2" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
-  <line x1="1080" y1="560" x2="1116" y2="560" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
   <g font-size="12">
     <line x1="1080" y1="560" x2="1116" y2="560" stroke-width="5" stroke-linecap="round" style="stroke:var(--rer-a)" />
     <text x="1124" y="564" style="fill:var(--text-dim)">闸机线（刷卡处，实测）</text>
     <rect x="1080" y="576" width="36" height="13" fill-opacity="0.28" style="fill:var(--rer-d)" />
-    <text x="1124" y="587" style="fill:var(--text-dim)">RER 付费区 ・ 区外自由通行</text>
+    <text x="1124" y="587" style="fill:var(--text-dim)">RER D / A 付费区（-3 / -4） ・ 区外自由通行</text>
   </g>
 </svg>
     </div>
