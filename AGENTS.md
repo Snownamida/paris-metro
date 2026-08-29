@@ -52,10 +52,11 @@ _headers                     /assets/* 缓存 5 分钟
    - 迷路高发区（如换乘大厅）值得单独开放大图。
 7. **数据核实时用最新来源**：法语维基百科、RATP、Île-de-France Mobilités、OSM Overpass（需带 User-Agent 否则 406）。
 
-## 5. 当前进度（2026-08-04）
+## 5. 当前进度（2026-08-30）
 
 - 三页 + 首页导航已上线，CF Pages 部署正常（生产域 paris-metro.snownamida.top，custom domain 的 Browser Cache TTL 被 zone 覆盖为 4h，靠 ?v=N 兜底）。
-- 里昂站页已完成：平面示意图（拓扑修正版）、iso.js 等轴测五层剖视图（含 L 形 Galerie des Fresques、带拐臂的 Hall 3）、-2 层换乘大厅 1:1 实测图（97 点轮廓 + 20 组闸机线（Overpass barrier=turnstile 实测，经仿射变换映射，平行/垂直/±25° 三族角度）+ 付费区 + 官方图结构：两条 RER 梯带、中央服务排、东侧商铺排、公交站区、方向连接）。
+- 里昂站页已完成：平面示意图（拓扑修正版）、iso.js 等轴测五层剖视图（含 L 形 Galerie des Fresques、带拐臂的 Hall 3）。
+- **-2 层换乘大厅图（2026-08-30 重做）**：SNCF 官方 PDF（refs/gare-de-lyon/sncf-plan-niveau--2-rer-metro.pdf）200dpi 渲染 → 顺时针转 90° → 裁剪 (raw 坐标窗口 (50,2650) 8333×3542 → 3000×1275) = `assets/img/map-base.jpg`。官方 PDF 的文字/图标是竖版排版（横版看全躺倒），已用「掩膜旋转贴回」管线把窗口内文字块与蓝牌逐个转正（脚本思路：连通域/几何掩膜 + inpaint 擦除 + CCW 90° 贴回；等距扶梯画与 3 块与 Navette 横幅冲突/复杂交织的牌保持官方原样）。三域着色 `assets/img/map-domains.png`（用户用 tools/domain-painter.html 手工 flood-fill 标注生成，免费域不着色）；域的说明放图下方文字，图内无任何叠加标注。
 - 最近一轮非网站任务：分析了 Compagnon Train APK（RATP 报站 app）——结论：无任何后台机制（无自有 Service、无前台服务、无后台定位权限，扫描绑定 MainActivity onPause/onResume），后台不报站是设计使然，无解。
 
 ## 6. 待办与待确认（等用户决定）
@@ -68,6 +69,6 @@ _headers                     /assets/* 缓存 5 分钟
 
 ## 7. 验证方式
 
-- 无头 Chrome 截图：`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --window-size=1440,6000 --screenshot=/tmp/x.png --virtual-time-budget=4000 file://…`
-- **注意：当前模型（deepseek-v4-flash）text-only 看不了截图**——用 HTML/SVG 源码核对 + 需要时把 PDF 用 `pdftotext -bbox` 提取坐标核对。
+- 无头 Chrome 截图：`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --window-size=1440,9000 --screenshot=/tmp/x.png --virtual-time-budget=5000 file://…`
+- 当前模型可直接看图（Read 工具读 PNG/JPG）；之前的 pdf-reader/vision 子代理（走 OpenAI key）已按用户要求删除，别再新建。
 - 改完记得 git status 干净 + 推送后确认线上已部署（curl 线上 HTML 查 ?v= 号）。
